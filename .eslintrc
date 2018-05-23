@@ -1,0 +1,44 @@
+er": true,
+        "commonjs": true,
+        "es6": true,
+        "jest": true
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "sourceType": "module"
+    },
+    "rules": {
+        "no-const-assign": "warn",
+        "no-console": "off",
+        "no-this-before-super": "warn",
+        "no-undef": "warn",
+        "no-continue": "off",
+        "no-unreachable": "warn",
+        "no-unused-vars": "warn",
+        "react/prefer-stateless-function": "off",
+        "react/jsx-filename-extension": "off",
+        "constructor-super": "warn",
+        "valid-typeof": "warn",
+        "quotes": [
+            2,
+            "single"
+        ],
+        "semi": [
+            "off",
+            "never"
+        ]
+    },
+    "parser": "babel-eslint",
+    "extends": [
+        "airbnb",
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
+    "plugins": [
+        "react",
+        "jsx-a11y",
+        "import"
+    ]
+}
