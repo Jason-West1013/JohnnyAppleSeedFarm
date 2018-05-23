@@ -5,16 +5,12 @@ import Media from 'react-media';
 import { 
     HomeContainer, 
     Welcome, 
-    CustomerMessage, 
-    Message, 
-    ImageContainer,
+    Message,
     RightImage,
     GreetingContainer
 } from './home_style'
 
 // images
-import olaf from '../../../images/olof_orchard.jpg';
-import minion from '../../../images/orchard_minion.jpg';
 import orchard from '../../../images/orchard.jpg';
 
 class Home extends Component {
@@ -29,7 +25,7 @@ class Home extends Component {
 
     imageHandler() {
         let currentPosition = window.scrollY;
-        if (currentPosition = 50) {
+        if (currentPosition === 50) {
             this.setState({ showImage: true })
         }
     }
@@ -39,12 +35,12 @@ class Home extends Component {
         return(
           <HomeContainer>
             <GreetingContainer
-            unmountOnExit
-            in={ showImage }
-            timeout={ 1000 }>
-              <Media
-              query={{ maxWidth: 1160 }}>
-              {matches => 
+              unmountOnExit
+              in={showImage}
+              timeout={1000}
+            >
+              <Media query={{ maxWidth: 1160 }}>
+                {matches => 
                 matches? (
                   <Welcome>Welcome to our Farm!</Welcome>
                 ) : (
@@ -53,17 +49,17 @@ class Home extends Component {
               }
               </Media>
               <Message>
-                The orchards were originally planted in the 1977-78 growing season. Since then we have replaced many of the older trees and built a whole new orchard. The new location, on Schoolhouse Road in Ellington, was started in 1996 and is still being added to. We now offer a total of 60 acres of dwarf apple trees bearing 14 different varieties and 35 acres of easy to reach peach trees bearing 11 different varieties. We also grow many of our own vegetables including tomatoes, winter squash, sweet corn, and tons of pumpkins, to name a few.<br/><br/>
-                Fruitfully,<br/>
+                The orchards were originally planted in the 1977-78 growing season. Since then we have replaced many of the older trees and built a whole new orchard. The new location, on Schoolhouse Road in Ellington, was started in 1996 and is still being added to. We now offer a total of 60 acres of dwarf apple trees bearing 14 different varieties and 35 acres of easy to reach peach trees bearing 11 different varieties. We also grow many of our own vegetables including tomatoes, winter squash, sweet corn, and tons of pumpkins, to name a few.<br /><br />
+                Fruitfully,<br />
                 Kenny and Kim Shores
               </Message>
             </GreetingContainer>
             <RightImage unmountOnExit in={showImage} timeout={1000}>
-               <img src={ orchard } style={{ height: '100%',width: '100%' }} />
+              <img src={orchard} alt="Ellington Stand Sign" style={{ height: '100%',width: '100%' }} />
             </RightImage>
           </HomeContainer>
         )
     }
-};
+}
 
 export default Home;
