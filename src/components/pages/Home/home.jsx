@@ -25,7 +25,7 @@ class Home extends Component {
 
     imageHandler() {
         let currentPosition = window.scrollY;
-        if (currentPosition === 50) {
+        if (currentPosition >= 50) {
             this.setState({ showImage: true })
         }
     }

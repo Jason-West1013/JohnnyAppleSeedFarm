@@ -5,7 +5,6 @@ import Media from 'react-media';
 import { Foot, Address, RightDiv, RightDivHeader, FacebookIcon } from './footer_styles'
 
 // images
-import appleseed from '../../images/johnny_appleseed.png'
 import facebook from '../../images/facebook_dark.png'
 
 const Footer = () => {
