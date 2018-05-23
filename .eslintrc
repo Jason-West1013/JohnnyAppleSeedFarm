@@ -1,4 +1,6 @@
-er": true,
+{
+    "env": {     
+        "browser": true,
         "commonjs": true,
         "es6": true,
         "jest": true
@@ -19,6 +21,7 @@ er": true,
         "no-unused-vars": "warn",
         "react/prefer-stateless-function": "off",
         "react/jsx-filename-extension": "off",
+        "react/require-default-props": "off",
         "constructor-super": "warn",
         "valid-typeof": "warn",
         "quotes": [
