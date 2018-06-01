@@ -21,9 +21,7 @@ class  Header extends Component {
         this.stickyBar = this.stickyBar.bind(this);
     }
     
-    componentDidMount() { 
-      window.addEventListener('scroll', this.stickyBar); 
-    }
+    componentDidMount() { window.addEventListener('scroll', this.stickyBar); }
     componentWillUnmount() { window.removeEventListener('scroll', this.stickyBar); }
 
     // sticks the nav bar to the top of the window when scrolled past
@@ -39,12 +37,12 @@ class  Header extends Component {
     }
 
     render() {
-        const NavBar = styled.nav `
+      const NavBar = styled.nav `
             z-index: 99;
             position: ${this.state.onTop ? 'fixed' : 'relative'};
             top: ${this.state.onTop ? '0' : undefined};
             width: 100%;
-            background: ${this.state.onTop ? '#32893d' : undefined};
+            background: ${this.state.onTop ? '#ff6659' : undefined};
             text-align: center;
             min-width: 680px;
         `;
