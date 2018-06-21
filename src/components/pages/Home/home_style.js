@@ -245,7 +245,7 @@ export const MiddleParagraph = transition.p `
     }
 `;
 
-export const BottomParagraph = transition.p `
+export const BottomParagraph = styled.p `
     text-shadow: 2px 2px 4px #000;
     font-size: 18px;
 `;
