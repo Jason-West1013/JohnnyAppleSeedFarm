@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import transition from 'styled-transition-group';
 
 // images
-import houseOrchard from '../../../images/newMiddleMiddle.png';
+import houseOrchard from '../../../images/orchard_trail.jpg';
 
 export const HomeContainer = styled.div `
     position: relative;
@@ -91,6 +91,32 @@ export const MiddleSection = styled.div `
     }
 `;
 
+export const OrchardMessage = styled.div `
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 25%;
+
+    p {
+        text-align: center;
+        font-family: 'Khula', sans-serif;
+        color: #f3f3f5;
+    }
+
+    #topMessageWrapper {
+        z-index: 4;
+        position: relative;
+        display: flex;
+        align-items: center;
+        top: 5%;
+        left: 5%;
+        height: 100%;
+        width: 100%;
+    }
+`;
+
 export const MidTopLeftImage = transition.img `
     z-index: 2;
     position: absolute;
@@ -132,27 +158,14 @@ export const MidTopLeftBackground = transition.div `
     }
 `;
 
-export const MidTopOldOrchardMessage = styled.div `
-    margin: 0 auto;
-    height: 100%;
-    width: 25%;
+export const TopParagraph = transition.p `
+    font-size: 22px;
 
-    #topMessageWrapper {
-        z-index: 4;
-        position: relative;
-        top: 5%;
-        left: 5%;
-        display: flex;
-        align-items: center;
-        height: 100%;
-        width: 100%;
-    }
+    &:enter { opacity: 0.01; }
 
-    p {
-        text-align: center;
-        font-size: 22px;
-        font-family: 'Khula', sans-serif;
-        color: #f3f3f5;
+    &:enter-active {
+        opacity: 1;
+        transition: all 1000ms ease-out;
     }
 `;
 
@@ -220,32 +233,21 @@ export const MidTopRightBackground = transition.div `
     }
 `;
 
-export const MidMidNewOrchardMessage = transition.div `
-    margin: 0 auto;
-    position: relative;
-    display: flex;
-    left: 10%;
-    top: 20%;
-    align-items: center;
-    height: 100%;
-    width: 25%;
+export const MiddleParagraph = transition.p `
+    text-shadow: 2px 2px 4px #000;
+    font-size: 18px;
 
-    p {
-        text-align: center;
-        text-shadow: 2px 2px 4px #000;
-        font-size: 18px;
-        font-family: 'Khula', sans-serif;
-        color: #f3f3f5;
-    }
-
-    &:enter {
-        opacity: 0.01;
-    }
+    &:enter { opacity: 0.01; }
 
     &:enter-active {
         opacity: 1;
         transition: all 1000ms ease-out;
     }
+`;
+
+export const BottomParagraph = transition.p `
+    text-shadow: 2px 2px 4px #000;
+    font-size: 18px;
 `;
 
 // Bottom section of homepage

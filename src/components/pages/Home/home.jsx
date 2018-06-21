@@ -3,18 +3,20 @@ import React, { Component } from 'react';
 // styles 
 import { 
     HomeContainer,
-    SignContainer,
-    MessageHeader,
     TopSection,
-    BottomSection,
+    MessageHeader,
+    SignContainer,
     MiddleSection,
+    OrchardMessage,
     MidTopLeftImage,
-    MidTopOldOrchardMessage,
-    MidTopRightImage,
     MidTopLeftBackground,
+    TopParagraph,
     MidTopMessageBackground,
+    MidTopRightImage,
     MidTopRightBackground,
-    MidMidNewOrchardMessage
+    MiddleParagraph,
+    BottomParagraph,
+    BottomSection
 } from './home_style';
 
 // images
@@ -54,7 +56,7 @@ class Home extends Component {
         const { 
           showTopSection, 
           showMidTopSection, 
-          showMidMidSection 
+          showMidMidSection
         } = this.state;
 
         return(
@@ -74,25 +76,27 @@ class Home extends Component {
                 <MidTopMessageBackground unmountOnExit in={showMidTopSection} timeout={1000} />
                 <MidTopRightImage unmountOnExit in={showMidTopSection} timeout={1000} src={eatingApple} alt='Eating Apple' />
                 <MidTopRightBackground unmountOnExit in={showMidTopSection} timeout={1000} />
-                <MidTopOldOrchardMessage>
+                <OrchardMessage>
                   <div id='topMessageWrapper'>
-                    <p>
+                    <TopParagraph unmountOnExit in={showMidTopSection} timeout={1000}>
                       The orchard at 231 Somers Road (Route 83) in Ellington was originally planted in 1977-78. Since then, we have replaced many of the older trees with new ones to keep our orchards in good production.
-                    </p>
+                    </TopParagraph>
                   </div>
-                </MidTopOldOrchardMessage>
+                </OrchardMessage>
               </div>
               <div id='middleMiddle'>
-                <MidMidNewOrchardMessage unmountOnExit in={showMidMidSection} timeout={1000}>
-                  <p>
+                <OrchardMessage>
+                  <MiddleParagraph unmountOnExit in={showMidMidSection} timeout={1000}>
                     Our newer orchard located at 13 Schoolhouse Road in Ellington, was started in 1996 and is still being added to. We now offer 60 acres of dwarf apple trees bearing 15 different varieties and 30 acres of easy to reach peach trees.
-                  </p>
-                </MidMidNewOrchardMessage>
+                  </MiddleParagraph>
+                </OrchardMessage>
               </div>
               <div id='middleBottom'>
-                <p>
-                  In the fall we also have a pumpkin patch and corn maze located at the Somers Road location. We also grow a variety of other fruits and vegetables as well as seasonal items which may be purchased at one of our farfkzm markets. 
-                </p>
+                <OrchardMessage>
+                  <BottomParagraph>
+                    In the fall we also have a pumpkin patch and corn maze located at the Somers Road location. We also grow a variety of other fruits and vegetables as well as seasonal items which may be purchased at one of our farm markets. 
+                  </BottomParagraph>
+                </OrchardMessage>
               </div>
             </MiddleSection>
             <BottomSection>
