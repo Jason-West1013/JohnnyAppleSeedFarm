@@ -2,28 +2,29 @@ import React, { Component } from 'react';
 
 // styles 
 import { 
-    HomeContainer,
+    Container,
     TopSection,
     MessageHeader,
     SignContainer,
     MiddleSection,
     OrchardMessage,
-    MidTopLeftImage,
-    MidTopLeftBackground,
     TopParagraph,
-    MidTopMessageBackground,
-    MidTopRightImage,
-    MidTopRightBackground,
+    MidLeftImage,
+    MidLeftBackground,
     MiddleParagraph,
+    MidMessageBackground,
+    MidRightImage,
+    MidRightBackground,
     BottomParagraph,
-    BottomSection
+    BottomSection,
+    BottomImage
 } from './home_style';
 
 // images
 import ellingtonSign from '../../../images/ellington_sign_2.JPG';
 import beeGirl from '../../../images/bee_girl.png';
-import appleTree from '../../../images/apple_tree.jpg';
-import eatingApple from '../../../images/eating_apple_2.jpg';
+import olaf from '../../../images/olaf_kids.jpg';
+import pumpkins from '../../../images/pumpkin_patch.jpg';
 
 class Home extends Component {
     constructor(props) {
@@ -43,9 +44,9 @@ class Home extends Component {
         let currentPosition = window.scrollY;
         if (currentPosition >= 0) {
             this.setState({ showTopSection: true });
-            if (currentPosition >= 300) {
+            if (currentPosition >= 400) {
               this.setState({ showMidTopSection: true });
-              if (currentPosition >= 950) {
+              if (currentPosition >= 1150) {
                 this.setState({ showMidMidSection: true });
               }
             }
@@ -60,7 +61,7 @@ class Home extends Component {
         } = this.state;
 
         return(
-          <HomeContainer>
+          <Container>
             <TopSection>
               <MessageHeader unmountOnExit in={showTopSection} timeout={1000}>
                 We here at the farm are very proud of our beautiful surroundings and the work it has taken to get us here. We would like to tell you a little about the farm and what we have to offer...
@@ -70,31 +71,38 @@ class Home extends Component {
               </SignContainer>
             </TopSection>
             <MiddleSection>
-              <div id='midTop'>
-                <MidTopLeftImage unmountOnExit in={showMidTopSection} timeout={1000} src={appleTree} alt='Apple Tree' />
-                <MidTopLeftBackground unmountOnExit in={showMidTopSection} timeout={1000} />
-                <MidTopMessageBackground unmountOnExit in={showMidTopSection} timeout={1000} />
-                <MidTopRightImage unmountOnExit in={showMidTopSection} timeout={1000} src={eatingApple} alt='Eating Apple' />
-                <MidTopRightBackground unmountOnExit in={showMidTopSection} timeout={1000} />
+              <div id='middleTop'>
                 <OrchardMessage>
-                  <div id='topMessageWrapper'>
+                  <div id='wrapper'>
                     <TopParagraph unmountOnExit in={showMidTopSection} timeout={1000}>
                       The orchard at 231 Somers Road (Route 83) in Ellington was originally planted in 1977-78. Since then, we have replaced many of the older trees with new ones to keep our orchards in good production.
+                      <br />
+                      Our newer orchard located at 13 Schoolhouse Road in Ellington, was started in 1996 and is still being added to. We now offer 60 acres of dwarf apple trees bearing 15 different varieties and 30 acres of easy to reach peach trees.
                     </TopParagraph>
                   </div>
                 </OrchardMessage>
               </div>
               <div id='middleMiddle'>
+                <MidLeftImage unmountOnExit in={showMidMidSection} timeout={1000} src={pumpkins} alt='Pumpkin Patch' />
+                <MidLeftBackground unmountOnExit in={showMidMidSection} timeout={1000} />
+                <MidMessageBackground unmountOnExit in={showMidMidSection} timeout={1000} />
+                <MidRightImage unmountOnExit in={showMidMidSection} timeout={1000} src={olaf} alt='Kids with Olaf' />
+                <MidRightBackground unmountOnExit in={showMidMidSection} timeout={1000} />
                 <OrchardMessage>
-                  <MiddleParagraph unmountOnExit in={showMidMidSection} timeout={1000}>
-                    Our newer orchard located at 13 Schoolhouse Road in Ellington, was started in 1996 and is still being added to. We now offer 60 acres of dwarf apple trees bearing 15 different varieties and 30 acres of easy to reach peach trees.
-                  </MiddleParagraph>
+                  <div id='midMessageWrapper'>
+                    <MiddleParagraph unmountOnExit in={showMidMidSection} timeout={1000}>
+                      In the fall we also have a pumpkin patch and corn maze located at the Somers Road location. We also grow a variety of other fruits and vegetables as well as seasonal items which may be purchased at one of our farm markets. 
+                    </MiddleParagraph>
+                  </div>
                 </OrchardMessage>
               </div>
               <div id='middleBottom'>
+                <BottomImage />
                 <OrchardMessage>
                   <BottomParagraph>
-                    In the fall we also have a pumpkin patch and corn maze located at the Somers Road location. We also grow a variety of other fruits and vegetables as well as seasonal items which may be purchased at one of our farm markets. 
+                    The weather plays a huge role in all that we do, so it is advised to give the farm line a call before you come to get up to date information.
+                    <br />
+                    860-875-1000
                   </BottomParagraph>
                 </OrchardMessage>
               </div>
@@ -107,7 +115,7 @@ class Home extends Component {
                 Kenny and Kim Shores
               </p>
             </BottomSection>
-          </HomeContainer>
+          </Container>
         )
     }
 }

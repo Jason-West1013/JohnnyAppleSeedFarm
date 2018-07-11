@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 
 // page components
 import Home from './pages/Home/home';
-import PickYourOwn from './pages/pick_your_own';
+import PickYourOwn from './pages/Pick Your Own/pick_your_own';
 import FarmMarkets from './pages/farm_markets';
 import Directions from './pages/directions';
 import Recipes from './pages/recipes';
