@@ -4,8 +4,8 @@ import React, { Component } from 'react';
 import { 
     Container,
     TopSection,
-    MessageHeader,
-    SignContainer,
+    TopMessageContainer,
+    Sign,
     MiddleSection,
     OrchardMessage,
     TopParagraph,
@@ -16,8 +16,7 @@ import {
     MidRightImage,
     MidRightBackground,
     BottomParagraph,
-    BottomSection,
-    BottomImage
+    BottomSection
 } from './home_style';
 
 // images
@@ -63,23 +62,21 @@ class Home extends Component {
         return(
           <Container>
             <TopSection>
-              <MessageHeader unmountOnExit in={showTopSection} timeout={1000}>
-                We here at the farm are very proud of our beautiful surroundings and the work it has taken to get us here. We would like to tell you a little about the farm and what we have to offer...
-              </MessageHeader>
-              <SignContainer unmountOnExit in={showTopSection} timeout={1000}>
-                <img src={ellingtonSign} alt='Ellington Sign' style={{height: '100%', width: '100%'}} />
-              </SignContainer>
+              <TopMessageContainer unmountOnExit in={showTopSection} timeout={1000}>
+                <p>
+                  We here at the farm are very proud of our beautiful surroundings and the work it has taken to get us here. We would like to tell you a little about the farm and what we have to offer...
+                </p>
+              </TopMessageContainer>
+              <Sign src={ellingtonSign} alt='Ellington Sign' unmountOnExit in={showTopSection} timeout={1000} />
             </TopSection>
             <MiddleSection>
               <div id='middleTop'>
                 <OrchardMessage>
-                  <div id='wrapper'>
-                    <TopParagraph unmountOnExit in={showMidTopSection} timeout={1000}>
-                      The orchard at 231 Somers Road (Route 83) in Ellington was originally planted in 1977-78. Since then, we have replaced many of the older trees with new ones to keep our orchards in good production.
-                      <br />
-                      Our newer orchard located at 13 Schoolhouse Road in Ellington, was started in 1996 and is still being added to. We now offer 60 acres of dwarf apple trees bearing 15 different varieties and 30 acres of easy to reach peach trees.
-                    </TopParagraph>
-                  </div>
+                  <TopParagraph unmountOnExit in={showMidTopSection} timeout={1000}>
+                    The orchard at 231 Somers Road (Route 83) in Ellington was originally planted in 1977-78. Since then, we have replaced many of the older trees with new ones to keep our orchards in good production.
+                    <br />
+                    Our newer orchard located at 13 Schoolhouse Road in Ellington, was started in 1996 and is still being added to. We now offer 60 acres of dwarf apple trees bearing 15 different varieties and 30 acres of easy to reach peach trees.
+                  </TopParagraph>
                 </OrchardMessage>
               </div>
               <div id='middleMiddle'>
@@ -97,7 +94,6 @@ class Home extends Component {
                 </OrchardMessage>
               </div>
               <div id='middleBottom'>
-                <BottomImage />
                 <OrchardMessage>
                   <BottomParagraph>
                     The weather plays a huge role in all that we do, so it is advised to give the farm line a call before you come to get up to date information.

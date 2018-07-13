@@ -13,22 +13,29 @@ export const Container = styled.div `
 
 export const TopSection = styled.div `
     position: relative;
-    display: flex; 
-    align-items: center;
-    top: 4.5%;
+    top: 6%;
     height: 300px;
     width: 100%;
+    text-align: center;
     background: #338a3e;
 `;
 
-export const MessageHeader = transition.p `
+export const TopMessageContainer = transition.div `
     position: absolute;
-    float: right;
+    display: flex;
+    align-items: center;
     right: 5%;
-    width 40%;
-    color: #f3f3f5;
-    font-size: 25px;
-    font-family: 'Khula', sans-serif;
+    height: 100%;
+    max-width: 40%;
+    min-width: 30%;
+
+    p {
+        margin: 0 5%;
+        text-align: center;
+        color: #f3f3f5;
+        font-size: 25px;
+        font-family: 'Khula', sans-serif;
+    }
 
     &:enter { opacity: 0.01; }
 
@@ -38,12 +45,12 @@ export const MessageHeader = transition.p `
     }
 `;
 
-export const SignContainer = transition.div `
-    position: absolute;
+export const Sign = transition.img `
+    position: absolute; 
     top: -20%;
-    left: 2%;
-    width: 50%;
-    height: 140%;
+    left: 5%;
+    height: 140%; 
+    max-width: 50%;
 
     &:enter {
         opacity: 0.01;
@@ -65,27 +72,26 @@ export const MiddleSection = styled.div `
 
     #middleTop {
         position: relative;
-        top: 19%;
+        top: 28%;
         width: 100%;
         height: 550px;
 
         background-image: url(${houseOrchard});
+        background-size: cover;
         background-attachment: fixed;
         background-repeat: no-repeat;
-        background-size: 100% auto;
     }
 
     #middleMiddle {
         position: relative;
-        top: 30%;
+        top: 45%;
         width: 100%;
-        height: 400px;
+        height: 350px;
     }
 
     #middleBottom {
-        border: 1px solid black;
         position: relative;
-        top: 41%;
+        top: 55%;
         width: 100%;
         height: 400px;
     }
@@ -130,7 +136,7 @@ export const TopParagraph = transition.p `
 `;
 
 export const MidLeftImage = transition.img `
-    z-index: 2;
+    z-index: 3;
     position: absolute;
     left: 1.5%;
     bottom: -5%;
@@ -150,7 +156,7 @@ export const MidLeftImage = transition.img `
 `;
 
 export const MidLeftBackground = transition.div `
-    z-index: 1;
+    z-index: 2;
     position: absolute;
     left: 0;
     bottom: -10%;
@@ -183,7 +189,7 @@ export const MiddleParagraph = transition.p `
 `;
 
 export const MidMessageBackground = transition.div `
-    z-index: 3;
+    z-index: 1;
     position: absolute;
     top: 18%;
     right: 0;
@@ -251,12 +257,12 @@ export const BottomParagraph = styled.p `
     font-size: 18px;
 `;
 
-export const BottomImage = styled.img ``;
-
 // Bottom section of homepage
 export const BottomSection = styled.div `
     position: absolute;
     bottom: 1%;
+    height: 20%;
+    width: 100%;
 
     #beeGirl {
         position: relative;
