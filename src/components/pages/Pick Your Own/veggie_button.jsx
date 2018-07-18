@@ -1,24 +1,40 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import { Buttons } from './pick_style';
+
 class VeggieButton extends Component {
     constructor(props) {
         super(props);
         this.state = {
             hover: false
-        };
+        }
     }
 
     render() {
 
+        const style = {
+            'boxShadow': this.state.hover ? '-1px 2px 2px rgba(0,0,0,0.4)' : undefined
+        };
+
+        const handleHover = () => this.setState(prevState => ({
+            hover: !prevState.hover
+        }));
+
         return(
-          <img src={this.props.imgSrc} alt={this.props.altSrc} />
+          <Buttons 
+            src={this.props.buttonImage} 
+            alt={this.props.altSrc} 
+            style={style}
+            onFocus={() => void 0}
+            onMouseOver={handleHover}
+          />
         );
     }
 }
 
 VeggieButton.propTypes = {
-    imgSrc: PropTypes.string,
+    buttonImage: PropTypes.string,
     altSrc: PropTypes.string
 }
 
