@@ -1,5 +1,5 @@
 {
-    "env": {     
+    "env": {
         "browser": true,
         "commonjs": true,
         "es6": true,
@@ -26,6 +26,7 @@
         "valid-typeof": "warn",
         "quotes": [
             2,
+            "double",
             "single"
         ],
         "semi": [
