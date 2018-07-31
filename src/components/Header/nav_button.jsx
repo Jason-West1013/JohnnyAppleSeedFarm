@@ -13,28 +13,23 @@ class NavButton extends Component {
   }
 
   render() {
-    // style sheet for each button, changes if hovered over or clicked
-    const StyledLink = styled(Link)`
-      background: ${
-        this.state.hover
-          ? "linear-gradient(#d32f2f, #ff6659)"
-          : "linear-gradient(#9a0007, #d32f2f)"
-      };
-      text-shadow: ${
-        this.state.hover && !this.state.click ? "1px 1px 2px #000" : undefined
-      };
-      boxShadow: ${
+    const style = {
+      background: this.state.hover
+        ? "linear-gradient(#d32f2f, #ff6659)"
+        : "linear-gradient(#9a0007, #d32f2f)",
+      textShadow:
+        this.state.hover && !this.state.click ? "1px 1px 2px #000" : undefined,
+      boxShadow:
         this.state.hover && !this.state.click
           ? "-1px 2px 2px rgba(0,0,0,0.4)"
-          : undefined
-      };
-      transition: background 0.7s ease;
-      text-decoration: none;
-      border: 1px solid #000;
-      color: white
-      width: 120px
-      padding: 0.35% 1%
-    `;
+          : undefined,
+      transition: "background 0.7s ease",
+      textDecoration: "none",
+      border: "1px solid #000",
+      color: "white",
+      width: "120px",
+      padding: "0.35% 1%"
+    };
 
     // event functions
     const handleHover = () =>
@@ -47,10 +42,11 @@ class NavButton extends Component {
       }));
 
     return (
-      <StyledLink
+      <Link
         href={() => void 0}
         to={this.props.navPath}
         onMouseOver={handleHover}
+        style={style}
         onFocus={() => void 0}
         onMouseOut={handleHover}
         onBlur={() => void 0}
@@ -58,7 +54,7 @@ class NavButton extends Component {
         onMouseUp={handleMouseClick}
       >
         {this.props.page}
-      </StyledLink>
+      </Link>
     );
   }
 }
