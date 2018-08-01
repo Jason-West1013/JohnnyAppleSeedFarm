@@ -74,7 +74,9 @@ export const StyledLink = transition(Link)`
   border: ${props => (props.altNavBar ? undefined : "1px solid #000")};
   background: ${props =>
     props.altNavBar ? undefined : "linear-gradient(#9a0007, #d32f2f)"};
-    text-decoration: none;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.9em;
   color: white;
 
   &:hover {
