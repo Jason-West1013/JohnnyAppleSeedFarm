@@ -50,7 +50,11 @@ class Header extends Component {
           <Logo src={logo} />
         </LogoContainer>
 
-        <NavBar id="navbar" stateTop={this.state.onTop}>
+        <NavBar
+          id="navbar"
+          stateTop={this.state.onTop}
+          slideIn={this.state.hideBackground}
+        >
           <TopNavBackground
             stateTop={this.state.onTop}
             unmountOnExit

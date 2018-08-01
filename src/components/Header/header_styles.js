@@ -46,8 +46,7 @@ export const TopNavBackground = transition.div`
     top: 0;
     height: 100%;
     width: 100%;
-    background: ${props =>
-      props.stateTop ? "linear-gradient(#9a0007, #d32f2f)" : undefined};
+    background: linear-gradient(#9a0007, #d32f2f);
 
     &:enter {
       transform: translateY(-100%);
@@ -56,6 +55,15 @@ export const TopNavBackground = transition.div`
     &:enter-active {
       transform: translateY(0%);
       transition: all 500ms ease-out;
+    }
+
+    &:exit {
+      transform: translateY(0%);
+    }
+
+    &:exit-active {
+      transform: translateY(-100%);
+      transition: all 200ms ease-out;
     }
 `;
 
