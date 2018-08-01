@@ -1,8 +1,16 @@
 import React, { Component } from "react";
 import NavButton from "./nav_button";
 
+// NOTE: current bug in the slide-down div TopNavBackground so had to set it to clear background when not onTop, would like it to slide away.
+
 // styles
-import { Head, LogoContainer, Logo, NavBar } from "./header_styles";
+import {
+  Head,
+  LogoContainer,
+  Logo,
+  NavBar,
+  TopNavBackground
+} from "./header_styles";
 
 // images
 import logo from "../../images/logo.png";
@@ -30,7 +38,7 @@ class Header extends Component {
 
     if (el.getBoundingClientRect().bottom <= 0) {
       this.setState({ onTop: true });
-    } else if (position === 0) {
+    } else if (position < 200) {
       this.setState({ onTop: false });
     }
   }
@@ -43,6 +51,12 @@ class Header extends Component {
         </LogoContainer>
 
         <NavBar id="navbar" stateTop={this.state.onTop}>
+          <TopNavBackground
+            stateTop={this.state.onTop}
+            unmountOnExit
+            in={this.state.onTop}
+            timeout={1000}
+          />
           <NavButton
             page="Home"
             navPath="/"

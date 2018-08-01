@@ -39,8 +39,24 @@ export const NavBar = styled.nav`
   padding: 0.3em 0;
   justify-content: ${props => (props.stateTop ? "start" : "center")};
   text-align: center;
-  background: ${props =>
-    props.stateTop ? "linear-gradient(#9a0007, #d32f2f)" : undefined};
+`;
+
+export const TopNavBackground = transition.div`
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: ${props =>
+      props.stateTop ? "linear-gradient(#9a0007, #d32f2f)" : undefined};
+
+    &:enter {
+      transform: translateY(-100%);
+    }
+
+    &:enter-active {
+      transform: translateY(0%);
+      transition: all 500ms ease-out;
+    }
 `;
 
 // NavButton Styles
