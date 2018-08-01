@@ -1,9 +1,16 @@
 import React, { Component } from "react";
-import styled from "styled-components";
 import NavButton from "./nav_button";
 
+// NOTE: current bug in the slide-down div TopNavBackground so had to set it to clear background when not onTop, would like it to slide away.
+
 // styles
-import { Head, LogoContainer, Logo } from "./header_styles";
+import {
+  Head,
+  LogoContainer,
+  Logo,
+  NavBar,
+  TopNavBackground
+} from "./header_styles";
 
 // images
 import logo from "../../images/logo.png";
@@ -31,47 +38,54 @@ class Header extends Component {
 
     if (el.getBoundingClientRect().bottom <= 0) {
       this.setState({ onTop: true });
-    } else if (position === 0) {
+    } else if (position == 0) {
       this.setState({ onTop: false });
     }
   }
 
   render() {
-    const NavBar = styled.nav`
-      display: flex;
-      justify-content: center;
-      text-align: center;
-      z-index: ${this.state.onTop ? "99" : undefined};
-      position: ${this.state.onTop ? "fixed" : undefined};
-      top: ${this.state.onTop ? "0" : undefined};
-      width: ${this.state.onTop ? "100%" : undefined};
-      background: ${this.state.onTop ? "#ff6659" : undefined};
-    `;
-
     return (
       <Head>
         <LogoContainer>
           <Logo src={logo} />
         </LogoContainer>
 
-        <NavBar id="navbar">
-          <NavButton page="Home" navPath="/" top={this.state.onTop} />
+        <NavBar id="navbar" stateTop={this.state.onTop}>
+          <TopNavBackground
+            unmountOnExit
+            in={this.state.onTop}
+            timeout={1000}
+          />
+          <NavButton
+            page="Home"
+            navPath="/"
+            stateTop={this.state.onTop}
+            transDelay={"0s"}
+          />
           <NavButton
             page="Pick Your Own"
             navPath="/pick_your_own"
-            top={this.state.onTop}
+            stateTop={this.state.onTop}
+            transDelay={"0.15s"}
           />
           <NavButton
             page="Farm Markets"
             navPath="/farm_markets"
-            top={this.state.onTop}
+            stateTop={this.state.onTop}
+            transDelay={"0.4s"}
           />
           <NavButton
             page="Directions"
             navPath="/directions"
-            top={this.state.onTop}
+            stateTop={this.state.onTop}
+            transDelay={"0.65s"}
           />
-          <NavButton page="Recipes" navPath="/recipes" top={this.state.onTop} />
+          <NavButton
+            page="Recipes"
+            navPath="/recipes"
+            stateTop={this.state.onTop}
+            transDelay={"0.9s"}
+          />
         </NavBar>
       </Head>
     );

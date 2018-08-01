@@ -1,18 +1,11 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import styled from "../../../node_modules/styled-components";
+import StyledLink from "./header_styles";
 
+// The Link is handled in the styled-component file.
 class NavButton extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      hover: false,
-      click: false
-    };
-  }
-
   render() {
+<<<<<<< HEAD
     const style = {
       background: this.state.hover
         ? "linear-gradient(#d32f2f, #ff6659)"
@@ -41,20 +34,17 @@ class NavButton extends Component {
         click: !prevState.click
       }));
 
+=======
+>>>>>>> a48f631f1a74667fa1aa1f3337ac1ffe1af4e6ab
     return (
-      <Link
-        href={() => void 0}
+      <StyledLink
         to={this.props.navPath}
-        onMouseOver={handleHover}
-        style={style}
-        onFocus={() => void 0}
-        onMouseOut={handleHover}
-        onBlur={() => void 0}
-        onMouseDown={handleMouseClick}
-        onMouseUp={handleMouseClick}
+        altNavBar={this.props.stateTop}
+        delay={this.props.transDelay}
+        in={this.props.stateTop}
       >
         {this.props.page}
-      </Link>
+      </StyledLink>
     );
   }
 }
