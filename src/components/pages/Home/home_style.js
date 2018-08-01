@@ -261,6 +261,7 @@ export const MiddleContainer = styled.div`
 
   background-image: url(${houseOrchard});
   background-size: cover;
+  background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
 `;
@@ -268,7 +269,7 @@ export const MiddleContainer = styled.div`
 export const MiddleMessage = transition.p`
     flex-basis: 18%;
     color: #f3f3f5;
-    font-size: 1.15em;
+    font-size: 1.6vh
     font-family: 'Khula', sans-serif;
     text-shadow: 2px 2px 4px #000;
 
