@@ -38,7 +38,7 @@ class Header extends Component {
 
     if (el.getBoundingClientRect().bottom <= 0) {
       this.setState({ onTop: true });
-    } else if (position < 200) {
+    } else if (position == 0) {
       this.setState({ onTop: false });
     }
   }
@@ -50,13 +50,8 @@ class Header extends Component {
           <Logo src={logo} />
         </LogoContainer>
 
-        <NavBar
-          id="navbar"
-          stateTop={this.state.onTop}
-          slideIn={this.state.hideBackground}
-        >
+        <NavBar id="navbar" stateTop={this.state.onTop}>
           <TopNavBackground
-            stateTop={this.state.onTop}
             unmountOnExit
             in={this.state.onTop}
             timeout={1000}

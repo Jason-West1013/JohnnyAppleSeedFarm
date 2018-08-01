@@ -44,9 +44,9 @@ export const NavBar = styled.nav`
 export const TopNavBackground = transition.div`
     position: absolute;
     top: 0;
-    height: 100%;
-    width: 100%;
     background: linear-gradient(#9a0007, #d32f2f);
+    width: 100%;
+    height: 2.25em;
 
     &:enter {
       transform: translateY(-100%);
@@ -63,7 +63,7 @@ export const TopNavBackground = transition.div`
 
     &:exit-active {
       transform: translateY(-100%);
-      transition: all 200ms ease-out;
+      transition: all 500ms ease-out;
     }
 `;
 
