@@ -16,7 +16,7 @@ class NavButton extends Component {
     const style = {
       background: this.state.hover
         ? "linear-gradient(#d32f2f, #ff6659)"
-        : "linear-gradient(#9a0007, #d32f2f)",
+        : "linear-gradient(#9a0007, #d32f[=- 2f)",
       textShadow:
         this.state.hover && !this.state.click ? "1px 1px 2px #000" : undefined,
       boxShadow:
