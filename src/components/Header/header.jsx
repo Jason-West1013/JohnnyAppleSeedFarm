@@ -44,6 +44,14 @@ class Header extends Component {
   }
 
   render() {
+    const buttons = [
+      { page: "Home", navPath: "/", transDelay: "0s" },
+      { page: "Pick your Own", navPath: "/pick_your_own", transDelay: "0.15s" },
+      { page: "Farm Markets", navPath: "/farm_markets", transDelay: "0.4s" },
+      { page: "Directions", navPath: "/directions", transDelay: "0.65s" },
+      { page: "Recipes", navPath: "/recipes", transDelay: "0.9s" }
+    ];
+
     return (
       <Head>
         <LogoContainer>
@@ -56,36 +64,7 @@ class Header extends Component {
             in={this.state.onTop}
             timeout={1000}
           />
-          <NavButton
-            page="Home"
-            navPath="/"
-            stateTop={this.state.onTop}
-            transDelay={"0s"}
-          />
-          <NavButton
-            page="Pick Your Own"
-            navPath="/pick_your_own"
-            stateTop={this.state.onTop}
-            transDelay={"0.15s"}
-          />
-          <NavButton
-            page="Farm Markets"
-            navPath="/farm_markets"
-            stateTop={this.state.onTop}
-            transDelay={"0.4s"}
-          />
-          <NavButton
-            page="Directions"
-            navPath="/directions"
-            stateTop={this.state.onTop}
-            transDelay={"0.65s"}
-          />
-          <NavButton
-            page="Recipes"
-            navPath="/recipes"
-            stateTop={this.state.onTop}
-            transDelay={"0.9s"}
-          />
+          <NavButton navButtons={buttons} stateTop={this.state.onTop} />
         </NavBar>
       </Head>
     );

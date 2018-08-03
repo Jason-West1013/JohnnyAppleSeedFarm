@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import transition from "styled-transition-group";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 // images
 import headerBackground from "../../images/tree_background.png";
@@ -69,23 +70,28 @@ export const TopNavBackground = transition.div`
 
 // NavButton Styles
 export const StyledLink = transition(Link)`
-  width: ${props => (props.altNavBar ? undefined : "120px")};
   padding: 0.35% 1%;
-  border: ${props => (props.altNavBar ? undefined : "1px solid #000")};
-  background: ${props =>
-    props.altNavBar ? undefined : "linear-gradient(#9a0007, #d32f2f)"};
   text-decoration: none;
   font-family: 'Roboto', sans-serif;
   font-size: 0.9em;
   color: white;
 
+  ${props =>
+    props.altbar
+      ? undefined
+      : `
+    width: 120px;
+    border: 1px solid #000;
+    background: linear-gradient(#9a0007, #d32f2f);
+
+    &:hover {
+      background: linear-gradient(#d32f2f, #ff6659);
+      box-shadow: -1px 2px 2px rgba(0, 0, 0, 0.4);
+    }
+  `}
+
   &:hover {
-    background: ${props =>
-      props.altNavBar ? undefined : "linear-gradient(#d32f2f, #ff6659)"};
     text-shadow: 1px 1px 2px #000
-    box-shadow: ${props =>
-      props.altNavBar ? undefined : "-1px 2px 2px rgba(0, 0, 0, 0.4)"};
-    
   }
 
   &:active {
@@ -105,5 +111,9 @@ export const StyledLink = transition(Link)`
       transform 500ms ease-out ${props => props.delay}, 
       opacity 500ms ease-out ${props => props.delay};
 `;
+
+StyledLink.propTypes = {
+  altbar: PropTypes.string
+};
 
 export default StyledLink;

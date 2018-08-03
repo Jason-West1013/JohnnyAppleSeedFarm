@@ -1,26 +1,33 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import StyledLink from "./header_styles";
 
 // The Link is handled in the styled-component file.
+<<<<<<< HEAD
 class NavButton extends Component {
   render() {
+=======
+const NavButton = ({ navButtons, stateTop }) => {
+  return navButtons.map(function(result, i) {
+>>>>>>> 71dffed573fb8d4b96d4715a85f1413cef7f80e4
     return (
       <StyledLink
-        to={this.props.navPath}
-        altNavBar={this.props.stateTop}
-        delay={this.props.transDelay}
-        in={this.props.stateTop}
+        altbar={stateTop ? "true" : undefined}
+        to={result.navPath}
+        delay={result.transDelay}
+        in={stateTop}
+        timeout={100000}
+        key={i}
       >
-        {this.props.page}
+        {result.page}
       </StyledLink>
     );
-  }
-}
+  });
+};
 
 NavButton.propTypes = {
-  navPath: PropTypes.string,
-  page: PropTypes.string
+  navButtons: PropTypes.arrayOf(Object),
+  stateTop: PropTypes.bool
 };
 
 export default NavButton;
