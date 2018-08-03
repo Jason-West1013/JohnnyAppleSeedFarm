@@ -38,7 +38,7 @@ class Header extends Component {
 
     if (el.getBoundingClientRect().bottom <= 0) {
       this.setState({ onTop: true });
-    } else if (position == 0) {
+    } else if (position === 0) {
       this.setState({ onTop: false });
     }
   }
