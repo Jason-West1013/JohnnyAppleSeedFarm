@@ -1,85 +1,74 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import NavButton from './nav_button';
+import React, { Component } from "react";
+import NavButton from "./nav_button";
+
+// NOTE: current bug in the slide-down div TopNavBackground so had to set it to clear background when not onTop, would like it to slide away.
 
 // styles
-import { 
-  Head, 
-  LogoContainer, 
-  Logo
-} from './header_styles'
+import {
+  Head,
+  LogoContainer,
+  Logo,
+  NavBar,
+  TopNavBackground
+} from "./header_styles";
 
 // images
-import logo from '../../images/logo.png';
+import logo from "../../images/logo.png";
 
-class  Header extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { 
-          onTop: false
-         };
-        this.stickyBar = this.stickyBar.bind(this);
+class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      onTop: false
+    };
+    this.stickyBar = this.stickyBar.bind(this);
+  }
+
+  componentDidMount() {
+    window.addEventListener("scroll", this.stickyBar);
+  }
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.stickyBar);
+  }
+
+  // sticks the nav bar to the top of the window when scrolled past
+  stickyBar() {
+    let el = document.getElementById("navbar");
+    let position = window.scrollY;
+
+    if (el.getBoundingClientRect().bottom <= 0) {
+      this.setState({ onTop: true });
+    } else if (position === 0) {
+      this.setState({ onTop: false });
     }
-    
-    componentDidMount() { window.addEventListener('scroll', this.stickyBar); }
-    componentWillUnmount() { window.removeEventListener('scroll', this.stickyBar); }
+  }
 
-    // sticks the nav bar to the top of the window when scrolled past
-    stickyBar() {
-      let el = document.getElementById('navbar');
-      let position = window.scrollY;
+  render() {
+    const buttons = [
+      { page: "Home", navPath: "/", transDelay: "0s" },
+      { page: "Pick your Own", navPath: "/pick_your_own", transDelay: "0.15s" },
+      { page: "Farm Markets", navPath: "/farm_markets", transDelay: "0.4s" },
+      { page: "Directions", navPath: "/directions", transDelay: "0.65s" },
+      { page: "Recipes", navPath: "/recipes", transDelay: "0.9s" }
+    ];
 
-      if (el.getBoundingClientRect().bottom <= 0) {
-        this.setState({onTop: true});
-      } else if (position === 0) {
-        this.setState({onTop: false});
-      }
-    }
+    return (
+      <Head>
+        <LogoContainer>
+          <Logo src={logo} />
+        </LogoContainer>
 
-    render() {
-      const NavBar = styled.nav `
-            z-index: 99;
-            position: ${this.state.onTop ? 'fixed' : 'relative'};
-            top: ${this.state.onTop ? '0' : undefined};
-            width: 100%;
-            background: ${this.state.onTop ? '#ff6659' : undefined};
-            text-align: center;
-            min-width: 680px;
-        `;
-
-        const List = styled.li `
-            margin: ${this.state.onTop ? undefined : '5px'};
-            display: inline;
-        `;
-
-        return(
-          <Head>
-            <LogoContainer>
-              <Logo src={logo} />
-            </LogoContainer>
-
-            <NavBar id='navbar'>
-              <ul>
-                <List>
-                  <NavButton page='Home' navPath='/' />
-                </List>
-                <List>
-                  <NavButton page='Pick Your Own' navPath='/pick_your_own' />
-                </List>
-                <List>
-                  <NavButton page='Farm Markets' navPath='/farm_markets' />
-                </List>
-                <List>
-                  <NavButton page='Directions' navPath='/directions' />
-                </List>
-                <List>
-                  <NavButton page='Recipes' navPath='/recipes' />
-                </List>
-              </ul>
-            </NavBar>
-          </Head>
-        )
-    }
+        <NavBar id="navbar" stateTop={this.state.onTop}>
+          <TopNavBackground
+            unmountOnExit
+            in={this.state.onTop}
+            timeout={1000}
+          />
+          <NavButton navButtons={buttons} stateTop={this.state.onTop} />
+        </NavBar>
+      </Head>
+    );
+  }
 }
 
 export default Header;

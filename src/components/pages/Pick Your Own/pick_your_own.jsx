@@ -1,45 +1,78 @@
-import React from 'react';
-import VeggieButton from './veggie_button';
+import React, { Component } from "react";
+import VeggieButton from "./veggie_button";
 
 // styled components
-import { 
-  Container,
-  Top,
-  Sign,
-  List
-} from './pick_style';
+import { Container, SideBar, Console } from "./pick_style";
 
-// images 
-import appleButton from '../../../images/pick_your_own/apple_button.png';
-import pumpkinButton from '../../../images/pick_your_own/pumpkin_button.png';
-import peachButton from '../../../images/pick_your_own/peach_button.png';
-import standSign from '../../../images/pick_your_own/stand_sign.png';
+class PickYourOwn extends Component {
+  constructor(props) {
+    super(props);
+    this.handleButton = this.handleButton.bind(this);
+    this.handleMessage = this.handleMessage.bind(this);
+    this.state = {
+      button: [
+        { name: "Apples", buttonState: false },
+        { name: "Peaches", buttonState: false },
+        { name: "Pumpkins", buttonState: false }
+      ],
+      message: ""
+    };
+  }
 
-const standStyle = {
-  'height': '100%',
-  'width': '70%'
+  componentDidMount() {
+    this.handleMessage();
+  }
+
+  handleMessage(veggie) {
+    let messageString = "";
+    switch (veggie) {
+      case "Apples":
+        messageString = "Apples start in early Summer and run until Fall.";
+        break;
+      case "Peaches":
+        messageString = "Peaches can be picked in early Summer.";
+        break;
+      case "Pumpkins":
+        messageString =
+          "Pumpkin picking occurs in September and runs until Halloween.";
+        break;
+      default:
+        messageString =
+          "Tap a button on the side to get more information on it!";
+    }
+
+    this.setState({ message: <p>{messageString}</p> });
+  }
+
+  handleButton(e) {
+    let buttonTemp = this.state.button;
+    let selectedVeggie = "";
+    buttonTemp.map(function(entry) {
+      if (entry.name === e.target.text) {
+        entry.buttonState = true;
+        selectedVeggie = entry.name;
+      } else {
+        entry.buttonState = false;
+      }
+      return entry;
+    });
+    this.setState({ button: buttonTemp });
+    this.handleMessage(selectedVeggie);
+  }
+
+  render() {
+    return (
+      <Container>
+        <SideBar>
+          <VeggieButton
+            veggies={this.state.button}
+            onButtonPress={this.handleButton}
+          />
+        </SideBar>
+        <Console>{this.state.message}</Console>
+      </Container>
+    );
+  }
 }
-
-const PickYourOwn = () => {
-  return(
-    <Container>
-      <Top>
-        <List>
-          <VeggieButton buttonImage={appleButton} altSrc='Apple' />
-        </List>
-        <List>
-          <VeggieButton buttonImage={pumpkinButton} altSrc='Pumpkin' />
-        </List>
-        <List>
-          <VeggieButton buttonImage={peachButton} altSrc='Peach' />
-        </List>
-      </Top>
-      <Sign>
-        <div id='chalkboard' />
-        <img src={standSign} alt='Stand Sign' style={standStyle} />
-      </Sign>
-    </Container>
-  )
-};
 
 export default PickYourOwn;
