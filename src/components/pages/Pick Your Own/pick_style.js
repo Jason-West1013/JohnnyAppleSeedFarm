@@ -7,15 +7,17 @@ export const Container = styled.div`
   background: linear-gradient(90deg, #fbfffc, #98ee99, #fbfffc);
 `;
 
-export const Console = styled.div`
-  border: 1px solid red;
-  flex-grow: 4;
-`;
-
 export const SideBar = styled.div`
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  flex-basis: 25%;
+`;
+
+export const Console = styled.div`
+  border: 1px solid red;
+  flex-basis: 75%;
+  overflow: hidden;
+  text-align: center;
 `;
 
 export const Buttons = styled.a`
