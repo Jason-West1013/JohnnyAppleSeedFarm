@@ -1,6 +1,6 @@
 import styled from "styled-components";
+import transition from "styled-transition-group";
 
-// imported to pick_style
 export const Container = styled.div`
   width: 100%;
   display: flex;
@@ -13,15 +13,8 @@ export const SideBar = styled.div`
   flex-basis: 25%;
 `;
 
-export const Console = styled.div`
-  border: 1px solid red;
-  flex-basis: 75%;
-  overflow: hidden;
-  text-align: center;
-`;
-
+// VeggieButton styles
 export const Buttons = styled.a`
-  border: 1px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,6 +22,11 @@ export const Buttons = styled.a`
   width: 100%;
   height: 10em;
   background: ${props => (props.buttonPressed ? "blue" : undefined)};
+
+  img {
+    height: 12em;
+    width: 13em;
+  }
 
   &:hover {
     background: red;
@@ -42,4 +40,55 @@ export const Buttons = styled.a`
   &:visited {
     background: blue;
   }
+`;
+
+// Console styles
+export const ConsoleContainer = styled.div`
+  display: flex;
+  flex-basis: 85%;
+  overflow: hidden;
+  white-space: pre-wrap;
+`;
+
+export const MessageContainer = transition.div`
+  border: 1px solid black;
+  height: 100%;
+  flex-basis: 40%;
+  text-align: center;
+
+  &:enter { opacity: 0.01; }
+
+  &:enter-active {
+    opacity: 1;
+    transition: all 1000ms ease-out;
+  }
+
+  &:exit { opacity: 1; }
+
+  &:exit-active {
+    opacity: 0.01;
+    transition: all 1000ms ease-out;
+  }
+`;
+
+export const ImageContainerLeft = styled.div`
+  border: 1px solid yellow;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 30%;
+  height: 100%;
+`;
+
+export const ImageContainerRight = styled.div`
+  border: 1px solid blue;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 30%;
+  height: 100%;
+`;
+
+export const ConsoleImage = styled.div`
+  border: 1px solid red;
+  flex-basis: 50%;
+  width: 100%;
 `;

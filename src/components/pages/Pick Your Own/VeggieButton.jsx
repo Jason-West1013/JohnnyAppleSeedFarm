@@ -11,7 +11,7 @@ const VeggieButton = ({ veggies, onButtonPress }) => {
         buttonPressed={result.buttonState}
         key={i}
       >
-        {result.name}
+        <img id={result.name} src={result.image} alt={result.name} />
       </Buttons>
     );
   });
