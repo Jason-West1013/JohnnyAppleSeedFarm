@@ -60,14 +60,7 @@ export const MessageContainer = transition.div`
 
   &:enter-active {
     opacity: 1;
-    transition: all 1000ms ease-out;
-  }
-
-  &:exit { opacity: 1; }
-
-  &:exit-active {
-    opacity: 0.01;
-    transition: all 1000ms ease-out;
+    transition: all 1s ease-out;
   }
 `;
 
@@ -87,8 +80,14 @@ export const ImageContainerRight = styled.div`
   height: 100%;
 `;
 
-export const ConsoleImage = styled.div`
+// ConsoleImage Style
+export const ConsoleImageContainer = styled.div`
   border: 1px solid red;
   flex-basis: 50%;
   width: 100%;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
 `;

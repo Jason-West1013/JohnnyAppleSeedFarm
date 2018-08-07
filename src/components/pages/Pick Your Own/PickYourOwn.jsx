@@ -11,64 +11,59 @@ import pumpkinButtonImage from "../../../images/pick_your_own/pumpkin_button.png
 
 // messages
 import { data } from "./console_messages";
+import { images } from "./console_images";
 
 class PickYourOwn extends Component {
   constructor(props) {
     super(props);
     this.handleButton = this.handleButton.bind(this);
-    this.handleMessage = this.handleMessage.bind(this);
+    this.setCurrentButton = this.setCurrentButton.bind(this);
     this.state = {
       button: [
-        { name: "Apples", buttonState: false, image: appleButtonImage },
-        { name: "Peaches", buttonState: false, image: peachButtonImage },
-        { name: "Pumpkins", buttonState: false, image: pumpkinButtonImage }
+        {
+          name: "Apples",
+          buttonState: false,
+          buttonImage: appleButtonImage,
+          consoleImages: images.apples,
+          consoleMessage: {
+            pickTimes: data.apple.appleDates,
+            location: data.apple.appleLocation,
+            message: data.apple.appleMessage
+          }
+        },
+        {
+          name: "Peaches",
+          buttonState: false,
+          buttonImage: peachButtonImage,
+          consoleImages: images.peaches,
+          consoleMessage: {
+            pickTimes: data.peaches.peachDates,
+            location: data.peaches.peachLocation,
+            message: data.peaches.peachMessage
+          }
+        },
+        {
+          name: "Pumpkins",
+          buttonState: false,
+          buttonImage: pumpkinButtonImage,
+          consoleImages: images.pumpkins,
+          consoleMessage: {
+            pickTimes: data.pumpkins.pumpkinDates,
+            location: data.pumpkins.pumpkinLocation,
+            message: data.pumpkins.pumpkinMessage
+          }
+        }
       ],
-      messageIsShown: true,
-      pickTimes: "",
-      location: "",
-      message: ""
+      currentButton: {
+        consoleImages: images.default,
+        consoleMessage: {
+          pickTimes: data.default.defaultHeader,
+          location: data.default.defaultHeader,
+          message: data.default.defaultMessage
+        }
+      },
+      messageIsShown: true
     };
-  }
-
-  componentDidMount() {
-    this.handleMessage();
-  }
-
-  /**
-   * Prepares the output for the console dependent on which button was
-   * pressed. Split into three separate elements saved as states.
-   * @param {*} veggie
-   * @memberof PickYourOwn
-   */
-  handleMessage(veggie) {
-    let headerString = "Picking Times: ";
-    let locationString = "Where: ";
-    let messageString = "";
-
-    switch (veggie) {
-      case "Apples":
-        headerString += data.apple.appleDates;
-        locationString += data.apple.appleLocation;
-        messageString = data.apple.appleMessage;
-        break;
-      case "Peaches":
-        headerString += data.peaches.peachDates;
-        locationString += data.peaches.peachLocation;
-        messageString = data.peaches.peachMessage;
-        break;
-      case "Pumpkins":
-        headerString += data.pumpkins.pumpkinDates;
-        locationString += data.pumpkins.pumpkinLocation;
-        messageString = data.pumpkins.pumpkinMessage;
-        break;
-      default:
-        headerString = data.default.defaultHeader;
-        locationString = data.default.defaultHours;
-        messageString = data.default.defaultMessage;
-    }
-    this.setState({ pickTimes: headerString });
-    this.setState({ location: locationString });
-    this.setState({ message: messageString });
   }
 
   /**
@@ -80,7 +75,6 @@ class PickYourOwn extends Component {
    */
   handleButton(e) {
     let buttonTemp = this.state.button;
-    let selectedVeggie = "";
     let pressedButton = e.target.id;
 
     this.setState({ messageIsShown: false });
@@ -89,18 +83,26 @@ class PickYourOwn extends Component {
         buttonTemp.map(function(entry) {
           if (entry.name === pressedButton) {
             entry.buttonState = true;
-            selectedVeggie = entry.name;
           } else {
             entry.buttonState = false;
           }
           return entry;
         });
         this.setState({ button: buttonTemp });
-        this.handleMessage(selectedVeggie);
+        this.setCurrentButton();
         this.setState({ messageIsShown: true });
       }.bind(this),
-      1000
+      100
     );
+  }
+
+  setCurrentButton() {
+    let selected = this.state.button.find(function(element) {
+      return element.buttonState === true;
+    });
+    if (selected != null) {
+      this.setState({ currentButton: selected });
+    }
   }
 
   render() {
@@ -113,9 +115,7 @@ class PickYourOwn extends Component {
           />
         </SideBar>
         <Console
-          pickTimes={this.state.pickTimes}
-          location={this.state.location}
-          message={this.state.message}
+          button={this.state.currentButton}
           messageShown={this.state.messageIsShown}
         />
       </Container>

@@ -7,11 +7,12 @@ const VeggieButton = ({ veggies, onButtonPress }) => {
   return veggies.map(function(result, i) {
     return (
       <Buttons
+        id={result.name}
         onClick={onButtonPress}
         buttonPressed={result.buttonState}
         key={i}
       >
-        <img id={result.name} src={result.image} alt={result.name} />
+        <img id={result.name} src={result.buttonImage} alt={result.name} />
       </Buttons>
     );
   });
