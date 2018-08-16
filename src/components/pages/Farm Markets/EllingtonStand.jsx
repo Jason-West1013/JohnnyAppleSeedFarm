@@ -1,13 +1,20 @@
 import React, { Component } from "react";
+import { Marker, Popup, TileLayer } from "react-leaflet";
 import {
   ComponentContainer,
   DescriptionSlider,
   ImageContainer,
   FarmImage,
   DirectionContainer,
+  LeftContainer,
+  Directions,
+  Leaflet,
+  RightContainer,
   DescriptionHeader,
+  OpenSliderAnimationContainer,
   AnimationContainer,
-  AnimatedLine
+  AnimatedLine,
+  DirectionDescription
 } from "./farm_styles";
 
 //images
@@ -18,7 +25,7 @@ class EllingtonStand extends Component {
     super(props);
     this.state = {
       hover: false,
-      showDirections: false
+      showDirections: true
     };
     this.handleHover = this.handleHover.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -38,6 +45,7 @@ class EllingtonStand extends Component {
 
   render() {
     const headerState = this.state.hover || this.state.showDirections;
+    const position = [41.903, -72.457];
 
     return (
       <ComponentContainer
@@ -50,6 +58,7 @@ class EllingtonStand extends Component {
         >
           Ellington Stand
         </DescriptionHeader>
+
         <ImageContainer
           onMouseEnter={this.handleHover}
           onMouseLeave={this.handleHover}
@@ -58,16 +67,45 @@ class EllingtonStand extends Component {
           <FarmImage src={ellingtonStand} alt={"Ellington Stand"} />
           <DescriptionSlider in={this.state.hover} />
         </ImageContainer>
-        <AnimationContainer dir={"left"} show={this.state.showDirections}>
-          <AnimatedLine dir={"left"} in={this.state.showDirections} />
-        </AnimationContainer>
-        <AnimationContainer dir={"right"} show={this.state.showDirections}>
-          <AnimatedLine dir={"right"} in={this.state.showDirections} />
-        </AnimationContainer>
-        <DirectionContainer in={this.state.showDirections} />
+
+        <OpenSliderAnimation showState={this.state.showDirections} />
+
+        <DirectionContainer in={this.state.showDirections}>
+          <LeftContainer />
+          <Directions
+            onClick={function(e) {
+              e.stopPropagation();
+            }}
+          >
+            <Leaflet center={position} zoom={13}>
+              <TileLayer
+                url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
+                attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+              />
+              <Marker position={position}>
+                <Popup>A pretty CSS3 popup.</Popup>
+              </Marker>
+            </Leaflet>
+            <DirectionDescription onClick={this.handleClick} />
+          </Directions>
+          <RightContainer />
+        </DirectionContainer>
       </ComponentContainer>
     );
   }
 }
+
+const OpenSliderAnimation = ({ showState }) => {
+  return (
+    <OpenSliderAnimationContainer>
+      <AnimationContainer dir={"left"} show={showState}>
+        <AnimatedLine dir={"left"} in={showState} />
+      </AnimationContainer>
+      <AnimationContainer dir={"right"} show={showState}>
+        <AnimatedLine dir={"right"} in={showState} />
+      </AnimationContainer>
+    </OpenSliderAnimationContainer>
+  );
+};
 
 export default EllingtonStand;

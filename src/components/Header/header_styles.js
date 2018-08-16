@@ -42,7 +42,10 @@ export const NavBar = styled.nav`
   text-align: center;
 `;
 
-export const TopNavBackground = transition.div`
+export const TopNavBackground = transition.div.attrs({
+  unmountOnExit: true,
+  timeout: 1000
+})`
     position: absolute;
     top: 0;
     background: linear-gradient(#9a0007, #d32f2f);
@@ -69,7 +72,10 @@ export const TopNavBackground = transition.div`
 `;
 
 // NavButton Styles
-export const StyledLink = transition(Link)`
+export const StyledLink = transition(Link).attrs({
+  unmountOnExit: false,
+  timeout: 100000
+})`
   padding: 0.35% 1%;
   text-decoration: none;
   font-family: 'Roboto', sans-serif;

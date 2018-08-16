@@ -10,7 +10,6 @@ const NavButton = ({ navButtons, stateTop }) => {
         to={result.navPath}
         delay={result.transDelay}
         in={stateTop}
-        timeout={100000}
         key={i}
       >
         {result.page}

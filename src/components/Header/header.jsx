@@ -59,11 +59,7 @@ class Header extends Component {
         </LogoContainer>
 
         <NavBar id="navbar" stateTop={this.state.onTop}>
-          <TopNavBackground
-            unmountOnExit
-            in={this.state.onTop}
-            timeout={1000}
-          />
+          <TopNavBackground in={this.state.onTop} />
           <NavButton navButtons={buttons} stateTop={this.state.onTop} />
         </NavBar>
       </Head>
