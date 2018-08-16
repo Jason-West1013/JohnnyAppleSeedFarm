@@ -3,11 +3,14 @@ import {
   ComponentContainer,
   DescriptionSlider,
   ImageContainer,
+  FarmImage,
   DirectionContainer,
   DescriptionHeader,
   AnimationContainer,
   AnimatedLine
 } from "./farm_styles";
+
+import houseOrchard from "../../../images/farm_markets/home_orchard_redo.jpg";
 
 class HouseOrchard extends Component {
   constructor(props) {
@@ -51,14 +54,23 @@ class HouseOrchard extends Component {
           onMouseLeave={this.handleHover}
           in={!this.state.showDirections}
         >
-          <DescriptionSlider in={this.state.hover} />
+          <FarmImage src={houseOrchard} slt={"Home Orchard"} />
+          <DescriptionSlider in={this.state.hover}>
+            <p>
+              This is where written directions will go or perhaps just
+              information about the selected stand. I haven't decided yet.
+            </p>
+          </DescriptionSlider>
         </ImageContainer>
+
         <AnimationContainer dir={"left"} show={this.state.showDirections}>
           <AnimatedLine dir={"left"} in={this.state.showDirections} />
         </AnimationContainer>
+
         <AnimationContainer dir={"right"} show={this.state.showDirections}>
           <AnimatedLine dir={"right"} in={this.state.showDirections} />
         </AnimationContainer>
+
         <DirectionContainer in={this.state.showDirections} />
       </ComponentContainer>
     );

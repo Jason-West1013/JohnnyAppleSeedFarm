@@ -3,11 +3,15 @@ import {
   ComponentContainer,
   DescriptionSlider,
   ImageContainer,
+  FarmImage,
   DirectionContainer,
   DescriptionHeader,
   AnimationContainer,
   AnimatedLine
 } from "./farm_styles";
+
+// images
+import tollandStand from "../../../images/farm_markets/tolland_stand_redo.jpg";
 
 class TollandStand extends Component {
   constructor(props) {
@@ -41,9 +45,7 @@ class TollandStand extends Component {
         onClick={this.handleClick}
       >
         <DescriptionHeader
-          unmountOnExit
           in={headerState}
-          timeout={1000}
           ifClicked={this.state.showDirections}
         >
           Tolland Stand
@@ -51,37 +53,18 @@ class TollandStand extends Component {
         <ImageContainer
           onMouseEnter={this.handleHover}
           onMouseLeave={this.handleHover}
-          unmountOnExit
           in={!this.state.showDirections}
-          timeout={3000}
         >
-          <DescriptionSlider
-            unmountOnExit
-            in={this.state.hover}
-            timeout={1000}
-          />
+          <FarmImage src={tollandStand} alt={"Tolland Stand"} />
+          <DescriptionSlider in={this.state.hover} />
         </ImageContainer>
         <AnimationContainer dir={"left"} show={this.state.showDirections}>
-          <AnimatedLine
-            dir={"left"}
-            unmountOnExit
-            in={this.state.showDirections}
-            timeout={2000}
-          />
+          <AnimatedLine dir={"left"} in={this.state.showDirections} />
         </AnimationContainer>
         <AnimationContainer dir={"right"} show={this.state.showDirections}>
-          <AnimatedLine
-            dir={"right"}
-            unmountOnExit
-            in={this.state.showDirections}
-            timeout={2000}
-          />
+          <AnimatedLine dir={"right"} in={this.state.showDirections} />
         </AnimationContainer>
-        <DirectionContainer
-          unmountOnExit
-          in={this.state.showDirections}
-          timeout={3000}
-        />
+        <DirectionContainer in={this.state.showDirections} />
       </ComponentContainer>
     );
   }
