@@ -38,10 +38,7 @@ const ConsoleImage = ({ images }) => {
 };
 
 Console.propTypes = {
-  // pickTimes: PropTypes.string,
-  // location: PropTypes.string,
-  // message: PropTypes.string,
-  consoleImages: PropTypes.arrayOf(Object)
+  images: PropTypes.arrayOf(Object)
 };
 
 export default Console;

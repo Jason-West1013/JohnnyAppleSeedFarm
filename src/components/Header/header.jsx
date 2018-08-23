@@ -48,8 +48,7 @@ class Header extends Component {
       { page: "Home", navPath: "/", transDelay: "0s" },
       { page: "Pick your Own", navPath: "/PickYourOwn", transDelay: "0.15s" },
       { page: "Farm Markets", navPath: "/FarmMarkets", transDelay: "0.4s" },
-      { page: "Directions", navPath: "/directions", transDelay: "0.65s" },
-      { page: "Recipes", navPath: "/recipes", transDelay: "0.9s" }
+      { page: "Recipes", navPath: "/recipes", transDelay: "0.65s" }
     ];
 
     return (

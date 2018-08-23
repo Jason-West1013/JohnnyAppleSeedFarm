@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Marker, Popup, TileLayer } from "react-leaflet";
+import PropTypes from "prop-types";
+import Directions from "./Directions";
 import {
   ComponentContainer,
   DescriptionSlider,
@@ -7,20 +8,14 @@ import {
   FarmImage,
   DirectionContainer,
   LeftContainer,
-  Directions,
-  Leaflet,
   RightContainer,
   DescriptionHeader,
   OpenSliderAnimationContainer,
   AnimationContainer,
-  AnimatedLine,
-  DirectionDescription
+  AnimatedLine
 } from "./farm_styles";
 
-//images
-import ellingtonStand from "../../../images/farm_markets/ellington_stand_redo.jpg";
-
-class EllingtonStand extends Component {
+class Stand extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -45,7 +40,6 @@ class EllingtonStand extends Component {
 
   render() {
     const headerState = this.state.hover || this.state.showDirections;
-    const position = [41.903, -72.457];
 
     return (
       <ComponentContainer
@@ -56,7 +50,7 @@ class EllingtonStand extends Component {
           in={headerState}
           ifClicked={this.state.showDirections}
         >
-          Ellington Stand
+          {this.props.standInfo.name}
         </DescriptionHeader>
 
         <ImageContainer
@@ -64,31 +58,19 @@ class EllingtonStand extends Component {
           onMouseLeave={this.handleHover}
           in={!this.state.showDirections}
         >
-          <FarmImage src={ellingtonStand} alt={"Ellington Stand"} />
+          <FarmImage src={this.props.standInfo.image} alt={"Ellington Stand"} />
           <DescriptionSlider in={this.state.hover} />
         </ImageContainer>
 
         <OpenSliderAnimation showState={this.state.showDirections} />
 
         <DirectionContainer in={this.state.showDirections}>
-          <LeftContainer />
+          <LeftContainer>{this.props.left}</LeftContainer>
           <Directions
-            onClick={function(e) {
-              e.stopPropagation();
-            }}
-          >
-            <Leaflet center={position} zoom={13}>
-              <TileLayer
-                url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
-                attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-              />
-              <Marker position={position}>
-                <Popup>A pretty CSS3 popup.</Popup>
-              </Marker>
-            </Leaflet>
-            <DirectionDescription onClick={this.handleClick} />
-          </Directions>
-          <RightContainer />
+            position={this.props.standInfo.position}
+            click={this.handleClick}
+          />
+          <RightContainer>{this.props.right}</RightContainer>
         </DirectionContainer>
       </ComponentContainer>
     );
@@ -108,4 +90,10 @@ const OpenSliderAnimation = ({ showState }) => {
   );
 };
 
-export default EllingtonStand;
+Stand.propTypes = {
+  standInfo: PropTypes.object,
+  left: PropTypes.Component,
+  right: PropTypes.Component
+};
+
+export default Stand;

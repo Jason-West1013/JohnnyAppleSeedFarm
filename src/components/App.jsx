@@ -2,6 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 import Main from "./components/main";
 
+const mapStateToProps = state => {
+  return { articles: state.articles };
+};
+
 const App = () => {
   return (
     <div>
@@ -11,4 +15,4 @@ const App = () => {
   );
 };
 
-export default connect()(App);
+export default connect(mapStateToProps)(App);

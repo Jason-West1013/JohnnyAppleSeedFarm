@@ -170,34 +170,6 @@ export const DirectionContainer = transition.div.attrs({
     }
 `;
 
-export const LeftContainer = styled.div`
-  border: 1px solid red;
-  height: 100%;
-  flex: 1;
-`;
-
-export const RightContainer = styled.div`
-  border: 1px solid red;
-  height: 100%;
-  flex: 1;
-`;
-
-export const Directions = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-self: flex-start;
-  flex: 0.8;
-  height: 100%;
-`;
-
-export const Leaflet = styled(Map)`
-  flex: 1;
-`;
-
-export const DirectionDescription = styled.div`
-  flex: 0.6;
-`;
-
 export const OpenSliderAnimationContainer = styled.div`
   position: absolute;
   top: 0;
@@ -243,6 +215,34 @@ export const AnimatedLine = transition.div.attrs({
         opacity: 0.01;
         transition: all 1000ms ease-out;
     }
+`;
+
+export const Directions = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  flex: 0.8;
+  height: 100%;
+`;
+
+export const Leaflet = styled(Map)`
+  flex: 1;
+`;
+
+export const DirectionDescription = styled.div`
+  flex: 0.6;
+`;
+
+export const LeftContainer = styled.div`
+  border: 1px solid red;
+  height: 100%;
+  flex: 1;
+`;
+
+export const RightContainer = styled.div`
+  border: 1px solid red;
+  height: 100%;
+  flex: 1;
 `;
 
 export default Container;
