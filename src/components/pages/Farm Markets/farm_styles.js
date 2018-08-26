@@ -2,7 +2,7 @@ import styled from "styled-components";
 import transition from "styled-transition-group";
 
 // Colors
-import { greyPrimary, greyDark } from "../../../colors";
+import { greyPrimary, greyDark, greyLight } from "../../../colors";
 
 export const Container = styled.div`
   border: 1px solid black;
