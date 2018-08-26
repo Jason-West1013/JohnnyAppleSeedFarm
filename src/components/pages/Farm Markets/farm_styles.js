@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import transition from "styled-transition-group";
+import { Map } from "react-leaflet";
 
 // Colors
 import { greyPrimary, greyDark, greyLight } from "../../../colors";
@@ -19,7 +20,7 @@ export const ComponentContainer = styled.div`
   align-items: center;
   overflow: hidden;
   margin: 1em;
-  width: 60em;
+  width: 100%;
   height: 30em;
 `;
 
@@ -108,7 +109,7 @@ export const DescriptionHeader = transition.div.attrs({
       align-items: center;
       justify-content: center;
       top: ${props => (props.ifClicked ? "0" : "2.5em")};
-      width: 25%;
+      width: 15em;
       height: 2em;
       font-family: 'Ultra', serif;
       font-size: 1em;
@@ -143,10 +144,12 @@ export const DirectionContainer = transition.div.attrs({
   unmountOnExit: true,
   timeout: 3000
 })`
+    z-index: 97;
     position: absolute;
-    background-color: ${greyPrimary};
+    display: flex;
     height: 30em;
-    width: 100%;
+    width: 80%;
+    background-color: ${greyPrimary};
 
     &:enter {
         transform: translateY(-100%);
@@ -167,13 +170,20 @@ export const DirectionContainer = transition.div.attrs({
     }
 `;
 
+export const OpenSliderAnimationContainer = styled.div`
+  position: absolute;
+  top: 0;
+  width: 80%;
+  height: 5%;
+`;
+
 export const AnimationContainer = styled.div`
   position: absolute;
   overflow: hidden;
   top: 0;
   ${props => (props.dir === "left" ? "left: 0;" : "right: 0")};
   width: 50%;
-  height: 20%;
+  height: 100%;
 `;
 
 export const AnimatedLine = transition.div.attrs({
@@ -205,6 +215,34 @@ export const AnimatedLine = transition.div.attrs({
         opacity: 0.01;
         transition: all 1000ms ease-out;
     }
+`;
+
+export const Directions = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  flex: 0.8;
+  height: 100%;
+`;
+
+export const Leaflet = styled(Map)`
+  flex: 1;
+`;
+
+export const DirectionDescription = styled.div`
+  flex: 0.6;
+`;
+
+export const LeftContainer = styled.div`
+  border: 1px solid red;
+  height: 100%;
+  flex: 1;
+`;
+
+export const RightContainer = styled.div`
+  border: 1px solid red;
+  height: 100%;
+  flex: 1;
 `;
 
 export default Container;
