@@ -21,14 +21,13 @@ export const MiddleSec = styled.div`
 
   #middleMiddle {
     position: relative;
-    top: 45%;
     width: 100%;
     height: 350px;
   }
 
   #middleBottom {
     position: relative;
-    top: 55%;
+    top: 10%;
     width: 100%;
     height: 400px;
   }
@@ -269,7 +268,7 @@ export const MiddleContainer = styled.div`
 export const MiddleMessage = transition.p`
     flex-basis: 18%;
     color: #f3f3f5;
-    font-size: 1.6vh
+    font-size: 1.1em
     font-family: 'Khula', sans-serif;
     text-shadow: 2px 2px 4px #000;
 

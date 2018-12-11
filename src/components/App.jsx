@@ -9,7 +9,6 @@ const mapStateToProps = state => {
 const App = () => {
   return (
     <div>
-      <button>Test Button</button>
       <Main />
     </div>
   );

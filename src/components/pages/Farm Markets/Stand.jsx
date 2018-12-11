@@ -20,7 +20,7 @@ class Stand extends Component {
     super(props);
     this.state = {
       hover: false,
-      showDirections: true
+      showDirections: false
     };
     this.handleHover = this.handleHover.bind(this);
     this.handleClick = this.handleClick.bind(this);

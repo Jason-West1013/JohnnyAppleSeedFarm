@@ -3,7 +3,7 @@ import transition from "styled-transition-group";
 import { Map } from "react-leaflet";
 
 // Colors
-import { greyPrimary, greyDark, greyLight } from "../../../colors";
+import { greyPrimary, greyDark } from "../../../colors";
 
 export const Container = styled.div`
   border: 1px solid black;
@@ -234,13 +234,11 @@ export const DirectionDescription = styled.div`
 `;
 
 export const LeftContainer = styled.div`
-  border: 1px solid red;
   height: 100%;
   flex: 1;
 `;
 
 export const RightContainer = styled.div`
-  border: 1px solid red;
   height: 100%;
   flex: 1;
 `;
