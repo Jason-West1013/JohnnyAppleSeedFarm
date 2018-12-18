@@ -13,26 +13,6 @@ export const Container = styled.div`
   background: linear-gradient(90deg, #fbfffc, #98ee99, #fbfffc);
 `;
 
-export const MiddleSec = styled.div`
-  position: relative;
-  top: 1.5%;
-  height: 1100px;
-  width: 100%;
-
-  #middleMiddle {
-    position: relative;
-    width: 100%;
-    height: 350px;
-  }
-
-  #middleBottom {
-    position: relative;
-    top: 10%;
-    width: 100%;
-    height: 400px;
-  }
-`;
-
 export const OrchardMessage = styled.div`
   margin: 0 auto;
   position: relative;
@@ -59,129 +39,11 @@ export const OrchardMessage = styled.div`
   }
 `;
 
-export const MidLeftImage = transition.img`
-    z-index: 3;
-    position: absolute;
-    left: 1.5%;
-    bottom: -5%;
-    width: 40%;
-    height: 110%;
-
-    &:enter {
-        opacity: 0.01;
-        transform: translateX(-100%);
-    }
-
-    &:enter-active {
-        opacity: 1;
-        transform: translateX(0%);
-        transition: all 1000ms ease-out;
-    }
-`;
-
-export const MidLeftBackground = transition.div`
-    z-index: 2;
-    position: absolute;
-    left: 0;
-    bottom: -10%;
-    width: 43.5%
-    height: 120%;
-    background: #66bb6a;
-
-    &:enter {
-        opacity: 0.01;
-        transform: translateX(-100%);
-    }
-
-    &:enter-active {
-        opacity: 1;
-        transform: translateX(0%);
-        transition: all 800ms ease;
-    }
-`;
-
-export const MiddleParagraph = transition.p`
-    text-shadow: 2px 2px 4px #000; 
-    font-size: 22px;
-
-    &:enter { opacity: 0.01; }
-
-    &:enter-active {
-        opacity: 1;
-        transition: all 1000ms ease-out;
-    }
-`;
-
-export const MidMessageBackground = transition.div`
-    z-index: 1;
-    position: absolute;
-    top: 18%;
-    right: 0;
-    height: 75%;
-    width: 58%;
-    background: #338a3e;
-
-    &:enter {
-        opacity: 0.01;
-        transform: translateX(100%);
-    }
-
-    &:enter-active {
-        opacity: 1;
-        transform: translateX(0%);
-        transition: all 1000ms ease-out;
-    }
-`;
-
-export const MidRightImage = transition.img`
-    z-index: 5;
-    position: absolute;
-    margin: 0 auto;
-    top: -10%;
-    right: 5%;
-    width: 22%;
-    height: 120%;
-    transform: rotate(90);
-
-    &:enter {
-        opacity: 0.01;
-        transform: translateX(150%);
-    }
-
-    &:enter-active {
-        opacity: 1;
-        transform: translateX(0%);
-        transition: all 1100ms ease-out;
-    }
-`;
-
-export const MidRightBackground = transition.div`
-    z-index: 4;
-    position: absolute; 
-    top: -15%;
-    right: 3%;
-    height: 130%;
-    width: 26%;
-    background: #66bb6a;
-
-    &:enter {
-        opacity: 0.01;
-        transform: translateX(100%);
-    }
-
-    &:enter-active {
-        opacity: 1;
-        transform: translateX(0%);
-        transition: all 1000ms ease-out;
-    }
-`;
-
 export const BottomParagraph = styled.p`
   text-shadow: 2px 2px 4px #000;
   font-size: 18px;
 `;
 
-// Bottom section of homepage
 export const BottomSection = styled.div`
   position: absolute;
   bottom: 1%;
