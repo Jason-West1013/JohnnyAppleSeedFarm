@@ -3,7 +3,7 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import { Map, Marker, TileLayer, Popup } from "react-leaflet";
 
-export const Container = styled.div`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-self: flex-start;
@@ -11,11 +11,11 @@ export const Container = styled.div`
   height: 100%;
 `;
 
-export const Leaflet = styled(Map)`
+const Leaflet = styled(Map)`
   flex: 1;
 `;
 
-export const DirectionDescription = styled.div`
+const DirectionDescription = styled.div`
   flex: 0.6;
 `;
 
@@ -29,7 +29,7 @@ const Directions = ({ position, click }) => {
       <Leaflet center={position} zoom={13}>
         <TileLayer
           url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
-          attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
         <Marker position={position}>
           <Popup>A pretty CSS3 popup.</Popup>

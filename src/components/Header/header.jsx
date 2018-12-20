@@ -1,19 +1,78 @@
 import React, { Component } from "react";
 import NavButton from "./nav_button";
-
-// NOTE: current bug in the slide-down div TopNavBackground so had to set it to clear background when not onTop, would like it to slide away.
-
-// styles
-import {
-  Head,
-  LogoContainer,
-  Logo,
-  NavBar,
-  TopNavBackground
-} from "./header_styles";
+import styled from "styled-components";
+import transition from "styled-transition-group";
 
 // images
 import logo from "../../images/logo.png";
+import headerBackground from "../../images/header_image.png";
+
+// NOTE: current bug in the slide-down div TopNavBackground so had to set it to clear background when not onTop, would like it to slide away.
+
+// styled components
+const Head = styled.div`
+  position: relative;
+  height: 200px;
+  width: 100%;
+
+  background-image: url(${headerBackground});
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+`;
+
+const LogoContainer = styled.div`
+  margin: auto;
+  padding: 5px 0;
+  overflow: hidden;
+  width: 18em;
+  text-align: center;
+`;
+
+const Logo = styled.img`
+  width: 100%;
+  height: 100%;
+`;
+
+const NavBar = styled.nav`
+  z-index: ${props => (props.stateTop ? "99" : undefined)};
+  display: flex;
+  position: ${props => (props.stateTop ? "fixed" : undefined)};
+  top: ${props => (props.stateTop ? "0" : undefined)};
+  width: ${props => (props.stateTop ? "100%" : undefined)};
+  padding: 0.3em 0;
+  justify-content: ${props => (props.stateTop ? "start" : "center")};
+  text-align: center;
+`;
+
+const TopNavBackground = transition.div.attrs({
+  unmountOnExit: true,
+  timeout: 1000
+})`
+    position: absolute;
+    top: 0;
+    background: linear-gradient(#9a0007, #d32f2f);
+    width: 100%;
+    height: 2.25em;
+
+    &:enter {
+      transform: translateY(-100%);
+    }
+
+    &:enter-active {
+      transform: translateY(0%);
+      transition: all 500ms ease-out;
+    }
+
+    &:exit {
+      transform: translateY(0%);
+    }
+
+    &:exit-active {
+      transform: translateY(-100%);
+      transition: all 500ms ease-out;
+    }
+`;
 
 class Header extends Component {
   constructor(props) {

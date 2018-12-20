@@ -1,19 +1,177 @@
 import React, { Component } from "react";
+import styled from "styled-components";
+import transition from "styled-transition-group";
 import PropTypes from "prop-types";
+
+// components
 import Directions from "./Directions";
-import {
-  ComponentContainer,
-  DescriptionSlider,
-  ImageContainer,
-  FarmImage,
-  DirectionContainer,
-  LeftContainer,
-  RightContainer,
-  DescriptionHeader,
-  OpenSliderAnimationContainer,
-  AnimationContainer,
-  AnimatedLine
-} from "./farm_styles";
+import SliderAnimation from "./SliderAnimation";
+
+// colors
+import { greyPrimary, greyDark } from "../../../colors";
+
+// styled components
+const Container = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: 1em;
+  width: 100%;
+  height: 30em;
+`;
+
+const ImageContainer = transition.div.attrs({
+  unmountOnExit: true,
+  timeout: 3000
+})`
+  position: relative;
+  overflow: hidden;
+  width: 28em;
+  height: 25em
+
+    &:enter {
+        transform: translateY(-120%);
+    }
+
+    &:enter-active {
+        transform: translateY(0%);
+        transition: all 1000ms ease-out 0.6s;
+    }
+
+    &:exit {
+        transform: translateY(0%);
+    }
+
+    &:exit-active {
+        transform: translateY(-150%);
+        transition: all 1000ms ease-out;
+    }
+`;
+
+const FarmImage = styled.img`
+  height: 100%;
+  width: 100%;
+`;
+
+const DescriptionSlider = transition.div.attrs({
+  unmountOnExit: true,
+  timeout: 1000
+})`
+    position: absolute;
+    display: flex;
+    align-items: center;
+    background-color: ${greyDark};
+    bottom: 0;
+    width: 100%;
+    height: 50%;
+    opacity: 0.8;
+    text-align: center;
+
+    p {
+        color: #f3f3f5;
+    }
+  
+    &:enter {
+        opacity: 0.01;
+        transform: translateY(100%);
+    }
+  
+    &:enter-active {
+        opacity: 0.8;
+        transform: translateY(0%);
+        transition: all 1000ms ease-out;
+    }
+  
+    &:exit {
+        opacity: 0.8; 
+        transform: translateY(0%);
+    }
+  
+    &:exit-active {
+        opacity: 0.01;
+        transform: translateY(100%);
+        transition: all 1000ms ease-out;
+    }
+`;
+
+const DescriptionHeader = transition.div.attrs({
+  unmountOnExit: true,
+  timeout: 1000
+})`
+      border: 2px solid #f3f3f5;
+      z-index: 98;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: ${props => (props.ifClicked ? "0" : "2.5em")};
+      width: 15em;
+      height: 2em;
+      font-family: 'Ultra', serif;
+      font-size: 1em;
+      opacity: 0.9;
+      background-color: ${greyDark};
+      color: #f3f3f5;
+      transform: ${props =>
+        props.ifClicked
+          ? "translateY(0%); transition: all 1000ms ease-out;"
+          : "opacity: 0.01; transition: all 1000ms ease-out;"};
+  
+      &:enter {
+          opacity: 0.01;
+      }
+  
+      &:enter-active {
+          opacity: 0.9;
+          transition: all 1000ms ease-out;
+      }
+  
+      &:exit {
+          opacity: 0.9;
+      }
+  
+      &:exit-active {
+          opacity: 0.01;
+          transition: all 1000ms ease-out;
+      }
+  `;
+
+const DirectionContainer = transition.div.attrs({
+  unmountOnExit: true,
+  timeout: 3000
+})`
+    z-index: 97;
+    position: absolute;
+    display: flex;
+    height: 30em;
+    width: 80%;
+    background-color: ${greyPrimary};
+
+    &:enter {
+        transform: translateY(-100%);
+    }
+
+    &:enter-active {
+        transform: translateY(0%);
+        transition: all 1000ms ease-out 2s;
+    }
+
+    &:exit {
+        transform: translateY(0%);
+    }
+
+    &:exit-active {
+        transform: translateY(-100%);
+        transition: all 1000ms ease-out;
+    }
+`;
+
+const SideContainer = styled.div`
+  height: 100%;
+  flex: 1;
+`;
 
 class Stand extends Component {
   constructor(props) {
@@ -42,7 +200,7 @@ class Stand extends Component {
     const headerState = this.state.hover || this.state.showDirections;
 
     return (
-      <ComponentContainer
+      <Container
         directions={this.state.showDirections}
         onClick={this.handleClick}
       >
@@ -62,33 +220,20 @@ class Stand extends Component {
           <DescriptionSlider in={this.state.hover} />
         </ImageContainer>
 
-        <OpenSliderAnimation showState={this.state.showDirections} />
+        <SliderAnimation showState={this.state.showDirections} />
 
         <DirectionContainer in={this.state.showDirections}>
-          <LeftContainer>{this.props.left}</LeftContainer>
+          <SideContainer>{this.props.left}</SideContainer>
           <Directions
             position={this.props.standInfo.position}
             click={this.handleClick}
           />
-          <RightContainer>{this.props.right}</RightContainer>
+          <SideContainer>{this.props.right}</SideContainer>
         </DirectionContainer>
-      </ComponentContainer>
+      </Container>
     );
   }
 }
-
-const OpenSliderAnimation = ({ showState }) => {
-  return (
-    <OpenSliderAnimationContainer>
-      <AnimationContainer dir={"left"} show={showState}>
-        <AnimatedLine dir={"left"} in={showState} />
-      </AnimationContainer>
-      <AnimationContainer dir={"right"} show={showState}>
-        <AnimatedLine dir={"right"} in={showState} />
-      </AnimationContainer>
-    </OpenSliderAnimationContainer>
-  );
-};
 
 Stand.propTypes = {
   standInfo: PropTypes.object,

@@ -1,17 +1,35 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
+// colors
+import {
+  whitePrimary,
+  greenLight,
+  orangePrimary,
+  orangeLight
+} from "../../../colors";
+
 // component imports
 import TopSection from "./TopSection";
 import MiddleSection from "./MiddleSection";
 import BottomSection from "./BottomSection";
 
 // styled components
-export const Container = styled.div`
+const Container = styled.div`
   position: relative;
   overflow: auto;
+  background: linear-gradient(
+    90deg,
+    ${whitePrimary},
+    ${greenLight},
+    ${whitePrimary}
+  );
   width: 100%;
-  background: linear-gradient(90deg, #fbfffc, #98ee99, #fbfffc);
+  height: 100%;
+  ${props =>
+    props.background && {
+      background: `linear-gradient(90deg, ${orangeLight}, ${orangePrimary}, ${orangeLight})`
+    }};
 `;
 
 class Home extends Component {
@@ -20,7 +38,8 @@ class Home extends Component {
     this.state = {
       showTopSection: false,
       showMidSection: false,
-      showMidMidSection: false
+      showSignature: false,
+      changeBackground: false
     };
     this.imageHandler = this.imageHandler.bind(this);
   }
@@ -35,20 +54,36 @@ class Home extends Component {
 
   imageHandler() {
     let currentPosition = window.scrollY;
+    //console.log(currentPosition);
     if (currentPosition >= 300) {
       this.setState({ showMidSection: true });
-      if (currentPosition >= 1150) {
-        this.setState({ showMidMidSection: true });
-      }
+    }
+
+    // toggle for background color
+    if (currentPosition >= 0 && currentPosition <= 750) {
+      this.setState({ changeBackground: false });
+      //console.log(this.state.changeBackground);
+    } else {
+      this.setState({ changeBackground: true });
+      //console.log(this.state.changeBackground);
+    }
+
+    console.log(this.props.intro);
+
+    if (
+      window.innerHeight + Math.ceil(window.pageYOffset) >=
+      document.body.offsetHeight
+    ) {
+      this.setState({ showSignature: true });
     }
   }
 
   render() {
     return (
-      <Container>
+      <Container background={this.state.changeBackground}>
         <TopSection show={this.state.showTopSection} />
         <MiddleSection show={this.state.showMidSection} />
-        <BottomSection />
+        <BottomSection show={this.state.showSignature} />
       </Container>
     );
   }

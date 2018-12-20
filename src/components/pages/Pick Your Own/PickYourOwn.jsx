@@ -1,10 +1,9 @@
 import React, { Component } from "react";
+import styled from "styled-components";
 import VeggieButton from "./VeggieButton";
 import Console from "./Console";
 
-// styled components
-import { Container, SideBar } from "./pick_style";
-
+// images
 import appleButtonImage from "../../../images/pick_your_own/apple.png";
 import peachButtonImage from "../../../images/pick_your_own/peach_button.png";
 import pumpkinButtonImage from "../../../images/pick_your_own/pumpkin_button.png";
@@ -12,6 +11,19 @@ import pumpkinButtonImage from "../../../images/pick_your_own/pumpkin_button.png
 // messages
 import { data } from "./console_messages";
 import { images } from "./console_images";
+
+// styled componenets
+const Container = styled.div`
+  width: 100%;
+  display: flex;
+  background: linear-gradient(90deg, #fbfffc, #98ee99, #fbfffc);
+`;
+
+const SideBar = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-basis: 25%;
+`;
 
 class PickYourOwn extends Component {
   constructor(props) {

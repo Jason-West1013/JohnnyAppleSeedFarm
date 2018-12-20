@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import transition from "styled-transition-group";
 import PropTypes from "prop-types";
-import device from "../media_queries";
+import device from "../../../media_queries";
 
 // images
 import ellingtonSign from "../../../images/ellington_sign_2.JPG";

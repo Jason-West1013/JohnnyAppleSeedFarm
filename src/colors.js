@@ -24,8 +24,13 @@ export const greyLight = "#a7c0cd";
 export const greyDark = "#4b636e";
 
 // White
-export const whitePrimary = "#eeeeee";
+export const whitePrimary = "#fbfffc";
 export const whiteLight = "#ffffff";
-export const whiteDark = "#bcbcbc";
+export const whiteDark = "#c8ccc9";
+
+// Orange
+export const orangePrimary = "#ef6c00";
+export const orangeLight = "#ff9d3f";
+export const orangeDark = "#b53d00";
 
 export default redPrimary;

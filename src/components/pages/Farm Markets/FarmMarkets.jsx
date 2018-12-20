@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import styled from "styled-components";
+
+// componenets
 import Stand from "./Stand";
 import { EllingtonLeft, EllingtonRight } from "./EllingtonSides";
 import { TollandLeft, TollandRight } from "./TollandSides";
@@ -9,8 +12,14 @@ import ellingtonImage from "../../../images/farm_markets/ellington_stand_redo.jp
 import tollandImage from "../../../images/farm_markets/tolland_stand_redo.jpg";
 import houseImage from "../../../images/farm_markets/home_orchard_redo.jpg";
 
-// styles
-import { Container } from "./farm_styles";
+// styled components
+const Container = styled.div`
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(90deg, #fbfffc, #98ee99, #fbfffc);
+`;
 
 const ellingtonStand = {
   name: "Ellington Stand",
