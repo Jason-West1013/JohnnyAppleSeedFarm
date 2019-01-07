@@ -2,6 +2,7 @@ import React from "react";
 import transition from "styled-transition-group";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import color from '../../constants/colors';
 
 // styled components
 const StyledLink = transition(Link).attrs({
@@ -19,17 +20,17 @@ const StyledLink = transition(Link).attrs({
       ? undefined
       : `
     width: 120px;
-    border: 1px solid #000;
-    background: linear-gradient(#9a0007, #d32f2f);
+    border: 1px solid ${color.black};
+    background: linear-gradient(${color.redDark}, ${color.redPrimary});
 
     &:hover {
-      background: linear-gradient(#d32f2f, #ff6659);
+      background: linear-gradient(${color.redPrimary}, ${color.redLight});
       box-shadow: -1px 2px 2px rgba(0, 0, 0, 0.4);
     }
   `}
 
   &:hover {
-    text-shadow: 1px 1px 2px #000
+    text-shadow: 1px 1px 2px ${color.black}
   }
 
   &:active {
@@ -51,7 +52,7 @@ const StyledLink = transition(Link).attrs({
 `;
 
 const NavButton = ({ navButtons, stateTop }) => {
-  return navButtons.map(function(result, i) {
+  return navButtons.map(function (result, i) {
     return (
       <StyledLink
         altbar={stateTop ? "true" : undefined}

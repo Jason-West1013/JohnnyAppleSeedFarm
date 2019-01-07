@@ -1,18 +1,9 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-
-// colors
-import {
-  whitePrimary,
-  greenLight,
-  orangePrimary,
-  orangeLight
-} from "../../../colors";
-
-// component imports
-import TopSection from "./TopSection";
-import MiddleSection from "./MiddleSection";
-import BottomSection from "./BottomSection";
+import color from '../../../constants/colors';
+import TopSection from './TopSection.js';
+import MiddleSection from './MiddleSection.js';
+import BottomSection from './BottomSection.js';
 
 // styled components
 const Container = styled.div`
@@ -20,15 +11,15 @@ const Container = styled.div`
   overflow: auto;
   background: linear-gradient(
     90deg,
-    ${whitePrimary},
-    ${greenLight},
-    ${whitePrimary}
+    ${color.whitePrimary},
+    ${color.greenLight},
+    ${color.whitePrimary}
   );
   width: 100%;
   height: 100%;
   ${props =>
     props.background && {
-      background: `linear-gradient(90deg, ${orangeLight}, ${orangePrimary}, ${orangeLight})`
+      background: `linear-gradient(90deg, ${color.orangeLight}, ${color.orangePrimary}, ${color.orangeLight})`
     }};
 `;
 
@@ -46,7 +37,9 @@ class Home extends Component {
 
   componentDidMount() {
     window.addEventListener("scroll", this.imageHandler);
-    this.setState({ showTopSection: true });
+    this.setState({
+      showTopSection: true
+    });
   }
   componentWillUnmount() {
     window.removeEventListener("scroll", this.imageHandler);
@@ -56,15 +49,21 @@ class Home extends Component {
     let currentPosition = window.scrollY;
     //console.log(currentPosition);
     if (currentPosition >= 300) {
-      this.setState({ showMidSection: true });
+      this.setState({
+        showMidSection: true
+      });
     }
 
     // toggle for background color
     if (currentPosition >= 0 && currentPosition <= 750) {
-      this.setState({ changeBackground: false });
+      this.setState({
+        changeBackground: false
+      });
       //console.log(this.state.changeBackground);
     } else {
-      this.setState({ changeBackground: true });
+      this.setState({
+        changeBackground: true
+      });
       //console.log(this.state.changeBackground);
     }
 
@@ -74,13 +73,15 @@ class Home extends Component {
       window.innerHeight + Math.ceil(window.pageYOffset) >=
       document.body.offsetHeight
     ) {
-      this.setState({ showSignature: true });
+      this.setState({
+        showSignature: true
+      });
     }
   }
 
   render() {
     return (
-      <Container background={this.state.changeBackground}>
+      <Container background={this.state.changeBackground} >
         <TopSection show={this.state.showTopSection} />
         <MiddleSection show={this.state.showMidSection} />
         <BottomSection show={this.state.showSignature} />

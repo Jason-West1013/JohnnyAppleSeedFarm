@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import transition from "styled-transition-group";
 import PropTypes from "prop-types";
-import device from "../../../media_queries";
+import device from "../../../constants/media_queries.js";
 
 // images
 import houseOrchard from "../../../images/orchard_trail.jpg";

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import NavButton from "./nav_button";
 import styled from "styled-components";
 import transition from "styled-transition-group";
+import color from '../../constants/colors';
+import NavButton from "./NavButton.js";
 
 // images
 import logo from "../../images/logo.png";
@@ -51,7 +52,7 @@ const TopNavBackground = transition.div.attrs({
 })`
     position: absolute;
     top: 0;
-    background: linear-gradient(#9a0007, #d32f2f);
+    background: linear-gradient(${color.redDark}, ${color.redPrimary});
     width: 100%;
     height: 2.25em;
 

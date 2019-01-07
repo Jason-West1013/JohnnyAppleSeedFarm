@@ -1,9 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import transition from "styled-transition-group";
-
-// colors
-import { greyPrimary } from "../../../colors";
+import color from '../../../constants/colors';
 
 // styled components
 const Container = styled.div`
@@ -29,13 +27,13 @@ const AnimatedLine = transition.div.attrs({
     position: relative; 
     width: 100%;
     height: 0.5em;
-    background-color: ${greyPrimary};
+    background-color: ${color.greyPrimary};
 
     &:enter {
         ${props =>
-          props.dir === "left"
-            ? "transform: translateX(100%);"
-            : "transform: translateX(-100%);"};
+    props.dir === "left"
+      ? "transform: translateX(100%);"
+      : "transform: translateX(-100%);"};
       }
     
     &:enter-active {
@@ -53,19 +51,15 @@ const AnimatedLine = transition.div.attrs({
     }
 `;
 
-class SliderAnimation extends Component {
-  render() {
-    return (
-      <Container>
-        <AnimationContainer dir={"left"} show={this.props.showState}>
-          <AnimatedLine dir={"left"} in={this.props.showState} />
-        </AnimationContainer>
-        <AnimationContainer dir={"right"} show={this.props.showState}>
-          <AnimatedLine dir={"right"} in={this.props.showState} />
-        </AnimationContainer>
-      </Container>
-    );
-  }
-}
+const SliderAnimation = ({ showState }) => (
+  <Container>
+    <AnimationContainer dir={"left"} show={showState}>
+      <AnimatedLine dir={"left"} in={showState} />
+    </AnimationContainer>
+    <AnimationContainer dir={"right"} show={showState}>
+      <AnimatedLine dir={"right"} in={showState} />
+    </AnimationContainer>
+  </Container>
+);
 
 export default SliderAnimation;

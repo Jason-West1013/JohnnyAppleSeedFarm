@@ -1,15 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import store from "../images/tolland_storefront.jpg";
-
 // page components
-import Home from "./pages/Home/Home";
-import PickYourOwn from "./pages/Pick Your Own/PickYourOwn";
-import FarmMarkets from "./pages/Farm Markets/FarmMarkets";
-import Recipes from "./pages/recipes";
-import Header from "./Header/header";
-import Footer from "./Footer/footer";
+import Home from './pages/Home';
+import PickYourOwn from "./pages/Pick Your Own";
+import FarmMarkets from './pages/Farm Markets';
+import Recipes from "./pages/Recipes";
+import Header from './Header';
+import Footer from "./Footer";
 
 // component used for react router, add new page links here
 const Main = () => (

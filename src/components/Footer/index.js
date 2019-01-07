@@ -1,16 +1,17 @@
 import React from "react";
 import Media from "react-media";
 import styled from "styled-components";
+import color from '../../constants/colors';
 
 // images
 import facebook from "../../images/facebook_dark.png";
 
 // styled components
 const Foot = styled.div`
-  border-top: 10px solid #32893d;
+  border-top: 10px solid ${color.greenDark};
   height: 50px;
   width: 100%;
-  background: linear-gradient(#65ba69, #97ed98);
+  background: linear-gradient(${color.greenPrimary}, ${color.greenLight});
 `;
 
 const Address = styled.p`

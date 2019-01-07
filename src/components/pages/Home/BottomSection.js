@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
+import PropTypes from 'prop-types';
 import styled from "styled-components";
 import transition from "styled-transition-group";
 
@@ -38,18 +39,18 @@ const Signature = transition.p.attrs({
   }
 `;
 
-class BottomSection extends Component {
-  render() {
-    return (
-      <Container>
-        <Signature in={this.props.show}>
-          Fruitfully,
+const BottomSection = ({ show }) => (
+  <Container>
+    <Signature in={show}>
+      Fruitfully,
           <br />
-          Kenny & Kim Shores
+      Kenny & Kim Shores
         </Signature>
-      </Container>
-    );
-  }
-}
+  </Container>
+);
+
+BottomSection.propTypes = {
+  show: PropTypes.bool
+};
 
 export default BottomSection;

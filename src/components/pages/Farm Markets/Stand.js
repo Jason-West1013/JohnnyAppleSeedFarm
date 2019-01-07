@@ -2,13 +2,11 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import transition from "styled-transition-group";
 import PropTypes from "prop-types";
+import color from '../../../constants/colors';
 
 // components
-import Directions from "./Directions";
-import SliderAnimation from "./SliderAnimation";
-
-// colors
-import { greyPrimary, greyDark } from "../../../colors";
+import Directions from "./Directions.js";
+import SliderAnimation from "./SliderAnimation.js";
 
 // styled components
 const Container = styled.div`
@@ -62,7 +60,7 @@ const DescriptionSlider = transition.div.attrs({
     position: absolute;
     display: flex;
     align-items: center;
-    background-color: ${greyDark};
+    background-color: ${color.greyDark};
     bottom: 0;
     width: 100%;
     height: 50%;
@@ -70,7 +68,7 @@ const DescriptionSlider = transition.div.attrs({
     text-align: center;
 
     p {
-        color: #f3f3f5;
+        color: ${color.whitePrimary};
     }
   
     &:enter {
@@ -100,7 +98,7 @@ const DescriptionHeader = transition.div.attrs({
   unmountOnExit: true,
   timeout: 1000
 })`
-      border: 2px solid #f3f3f5;
+      border: 2px solid ${color.whitePrimary};
       z-index: 98;
       position: absolute;
       display: flex;
@@ -112,12 +110,12 @@ const DescriptionHeader = transition.div.attrs({
       font-family: 'Ultra', serif;
       font-size: 1em;
       opacity: 0.9;
-      background-color: ${greyDark};
-      color: #f3f3f5;
+      background-color: ${color.greyDark};
+      color: ${color.whitePrimary};
       transform: ${props =>
-        props.ifClicked
-          ? "translateY(0%); transition: all 1000ms ease-out;"
-          : "opacity: 0.01; transition: all 1000ms ease-out;"};
+    props.ifClicked
+      ? "translateY(0%); transition: all 1000ms ease-out;"
+      : "opacity: 0.01; transition: all 1000ms ease-out;"};
   
       &:enter {
           opacity: 0.01;
@@ -147,7 +145,7 @@ const DirectionContainer = transition.div.attrs({
     display: flex;
     height: 30em;
     width: 80%;
-    background-color: ${greyPrimary};
+    background-color: ${color.greyPrimary};
 
     &:enter {
         transform: translateY(-100%);

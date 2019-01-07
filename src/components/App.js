@@ -1,15 +1,12 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import transition from "styled-transition-group";
-import device from "./media_queries";
-import { connect } from "react-redux";
-import Main from "./components/main";
+import color from '../constants/colors'
+import device from '../constants/media_queries';
+import Main from './Main';
 
 // images
-import introImage from "./images/angry_birds_2.JPG";
-
-// colors
-import { whitePrimary } from "./colors";
+import introImage from "../images/angry_birds_2.JPG";
 
 // styled components
 const MainContainer = styled.div`
@@ -43,12 +40,12 @@ const IntroContainer = transition.div.attrs({
   align-items: center;
   width: 100%;
   height: 100%;
-  background: ${whitePrimary};
+  background: ${color.whitePrimary};
   background-image: url(${introImage});
   background-size: 100% auto;
   font-family: 'Sacramento', cursive;
   font-size: 2.5em;
-  color: ${whitePrimary};
+  color: ${color.whitePrimary};
   text-shadow: 2px 2px 4px #000;
   
   &:exit {
@@ -59,15 +56,11 @@ const IntroContainer = transition.div.attrs({
   }
 `;
 
-// redux
-const mapStateToProps = state => {
-  return { articles: state.articles };
-};
-
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { intro: true };
+    // set this state to true to show intro image
+    this.state = { intro: false };
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -90,4 +83,4 @@ class App extends Component {
   }
 }
 
-export default connect(mapStateToProps)(App);
+export default App;

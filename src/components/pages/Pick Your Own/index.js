@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import VeggieButton from "./VeggieButton";
-import Console from "./Console";
+import color from '../../../constants/colors';
+import VeggieButton from "./VeggieButton.js";
+import Console from "./Console.js";
 
 // images
 import appleButtonImage from "../../../images/pick_your_own/apple.png";
@@ -16,7 +17,7 @@ import { images } from "./console_images";
 const Container = styled.div`
   width: 100%;
   display: flex;
-  background: linear-gradient(90deg, #fbfffc, #98ee99, #fbfffc);
+  background: linear-gradient(90deg, ${color.whitePrimary}, ${color.greenLight}, ${color.whitePrimary});
 `;
 
 const SideBar = styled.div`
@@ -91,8 +92,8 @@ class PickYourOwn extends Component {
 
     this.setState({ messageIsShown: false });
     setTimeout(
-      function() {
-        buttonTemp.map(function(entry) {
+      function () {
+        buttonTemp.map(function (entry) {
           if (entry.name === pressedButton) {
             entry.buttonState = true;
           } else {
@@ -109,7 +110,7 @@ class PickYourOwn extends Component {
   }
 
   setCurrentButton() {
-    let selected = this.state.button.find(function(element) {
+    let selected = this.state.button.find(function (element) {
       return element.buttonState === true;
     });
     if (selected != null) {

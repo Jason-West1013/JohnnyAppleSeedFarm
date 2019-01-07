@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import transition from "styled-transition-group";
 import PropTypes from "prop-types";
-import device from "../../../media_queries";
+import device from "../../../constants/media_queries.js";
 
 // images
 import ellingtonSign from "../../../images/ellington_sign_2.JPG";
@@ -67,24 +67,20 @@ const Message = transition.p.attrs({
     }
 `;
 
-class TopSection extends Component {
-  render() {
-    return (
-      <Container>
-        <div id="sign-container">
-          <SignContainer in={this.props.show}>
-            <img src={ellingtonSign} alt="Ellington Sign" />
-          </SignContainer>
-        </div>
-        <Message in={this.props.show}>
-          We here at the farm are very proud of our beautiful surroundings and
-          the work it has taken to get us here. We would like to tell you a
-          little about the farm and what we have to offer...
+const TopSection = ({ show }) => (
+  <Container>
+    <div id="sign-container">
+      <SignContainer in={show}>
+        <img src={ellingtonSign} alt="Ellington Sign" />
+      </SignContainer>
+    </div>
+    <Message in={show}>
+      We here at the farm are very proud of our beautiful surroundings and
+      the work it has taken to get us here. We would like to tell you a
+      little about the farm and what we have to offer...
         </Message>
-      </Container>
-    );
-  }
-}
+  </Container>
+);
 
 TopSection.propTypes = {
   show: PropTypes.bool
