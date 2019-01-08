@@ -23,7 +23,8 @@ const Container = styled.div`
 const SideBar = styled.div`
   display: flex;
   flex-direction: column;
-  flex-basis: 25%;
+  flex: 1;
+  justify-content: space-evenly;
 `;
 
 class PickYourOwn extends Component {

@@ -17,7 +17,7 @@ const Main = () => (
       <Route exact path="/" component={Home} />
       <Route path="/PickYourOwn" component={PickYourOwn} />
       <Route path="/FarmMarkets" component={FarmMarkets} />
-      <Route path="/recipes" component={Recipes} />
+      <Route path="/Recipes" component={Recipes} />
       <Footer />
     </div>
   </Router>

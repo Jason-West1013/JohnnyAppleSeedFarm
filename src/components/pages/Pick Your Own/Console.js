@@ -5,16 +5,22 @@ import PropTypes from "prop-types";
 
 // styled components
 const Container = styled.div`
+  height: 850px;
+  position: relative;
+  flex: 5;
   display: flex;
-  flex-basis: 85%;
+  align-items: stretch;
   overflow: hidden;
   white-space: pre-wrap;
 `;
 
 const MessageContainer = transition.div`
-  border: 1px solid black;
-  height: 100%;
-  flex-basis: 40%;
+  border: 1px solid red;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  margin: auto;
+  height: 50%;
+  width: 50%;
   text-align: center;
 
   &:enter { opacity: 0.01; }
@@ -26,26 +32,21 @@ const MessageContainer = transition.div`
 `;
 
 const ImageContainerLeft = styled.div`
-  border: 1px solid yellow;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  flex-basis: 30%;
-  height: 100%;
 `;
 
 const ImageContainerRight = styled.div`
-  border: 1px solid blue;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  flex-basis: 30%;
-  height: 100%;
 `;
 
 // ConsoleImage Style
 const ConsoleImageContainer = styled.div`
-  border: 1px solid red;
-  flex-basis: 50%;
   width: 100%;
+  height: 100%;
 
   img {
     width: 100%;
@@ -72,7 +73,7 @@ const Console = ({ button, messageShown }) => {
 };
 
 const ConsoleImage = ({ images }) => {
-  return images.map(function(result, i) {
+  return images.map(function (result, i) {
     return (
       <ConsoleImageContainer key={i}>
         <img src={result.image} alt={result.name} />
