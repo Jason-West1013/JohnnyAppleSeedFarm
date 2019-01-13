@@ -14,10 +14,10 @@ const Main = () => (
   <Router>
     <div id="wrapper">
       <Header />
-      <Route exact path="/" component={Home} basename={process.env.PUBLIC_URL} />
-      <Route path="/PickYourOwn" component={PickYourOwn} />
-      <Route path="/FarmMarkets" component={FarmMarkets} />
-      <Route path="/Recipes" component={Recipes} />
+      <Route exact path={process.env.PUBLIC_URL + '/'} component={Home} />
+      <Route path={process.env.PUBLIC_URL + '/PickYourOwn'} component={PickYourOwn} />
+      <Route path={process.env.PUBLIC_URL + '/FarmMarkets'} component={FarmMarkets} />
+      <Route path={process.env.PUBLIC_URL + '/Recipes'} component={Recipes} />
       <Footer />
     </div>
   </Router>
