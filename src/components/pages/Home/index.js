@@ -1,9 +1,11 @@
+// TODO: Need to add something before the bee girl footer
+
 import React, { Component } from "react";
 import styled from "styled-components";
-import color from '../../../constants/colors';
-import TopSection from './TopSection.js';
-import MiddleSection from './MiddleSection.js';
-import BottomSection from './BottomSection.js';
+import color from "../../../constants/colors";
+import TopSection from "./TopSection.js";
+import MiddleSection from "./MiddleSection.js";
+import BottomSection from "./BottomSection.js";
 
 // styled components
 const Container = styled.div`
@@ -19,7 +21,9 @@ const Container = styled.div`
   height: 100%;
   ${props =>
     props.background && {
-      background: `linear-gradient(90deg, ${color.orangeLight}, ${color.orangePrimary}, ${color.orangeLight})`
+      background: `linear-gradient(90deg, ${color.orangeLight}, ${
+        color.orangePrimary
+      }, ${color.orangeLight})`
     }};
 `;
 
@@ -81,7 +85,7 @@ class Home extends Component {
 
   render() {
     return (
-      <Container background={this.state.changeBackground} >
+      <Container background={this.state.changeBackground}>
         <TopSection show={this.state.showTopSection} />
         <MiddleSection show={this.state.showMidSection} />
         <BottomSection show={this.state.showSignature} />

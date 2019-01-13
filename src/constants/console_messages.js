@@ -1,4 +1,4 @@
-export const data = {
+const data = {
   default: {
     defaultHeader: "U-Pick",
     defaultHours: "Hours\n Summer: 9am to 1pm\n Fall: 9am to 5pm",

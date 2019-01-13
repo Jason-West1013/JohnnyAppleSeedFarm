@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import color from "../../../constants/colors";
+import color from '../../../constants/colors';
 import VeggieButton from "./VeggieButton.js";
 import Console from "./Console.js";
 
@@ -9,16 +9,15 @@ import appleButtonImage from "../../../images/pick_your_own/apple.png";
 import peachButtonImage from "../../../images/pick_your_own/peach_button.png";
 import pumpkinButtonImage from "../../../images/pick_your_own/pumpkin_button.png";
 
+// messages
+import { data } from "./console_messages";
+import { images } from "./console_images";
+
 // styled componenets
 const Container = styled.div`
   width: 100%;
   display: flex;
-  background: linear-gradient(
-    90deg,
-    ${color.whitePrimary},
-    ${color.greenLight},
-    ${color.whitePrimary}
-  );
+  background: linear-gradient(90deg, ${color.whitePrimary}, ${color.greenLight}, ${color.whitePrimary});
 `;
 
 const SideBar = styled.div`
@@ -38,21 +37,44 @@ class PickYourOwn extends Component {
         {
           name: "Apples",
           buttonState: false,
-          buttonImage: appleButtonImage
+          buttonImage: appleButtonImage,
+          consoleImages: images.apples,
+          consoleMessage: {
+            pickTimes: data.apple.appleDates,
+            location: data.apple.appleLocation,
+            message: data.apple.appleMessage
+          }
         },
         {
           name: "Peaches",
           buttonState: false,
-          buttonImage: peachButtonImage
+          buttonImage: peachButtonImage,
+          consoleImages: images.peaches,
+          consoleMessage: {
+            pickTimes: data.peaches.peachDates,
+            location: data.peaches.peachLocation,
+            message: data.peaches.peachMessage
+          }
         },
         {
           name: "Pumpkins",
           buttonState: false,
-          buttonImage: pumpkinButtonImage
+          buttonImage: pumpkinButtonImage,
+          consoleImages: images.pumpkins,
+          consoleMessage: {
+            pickTimes: data.pumpkins.pumpkinDates,
+            location: data.pumpkins.pumpkinLocation,
+            message: data.pumpkins.pumpkinMessage
+          }
         }
       ],
       currentButton: {
-        name: "Default"
+        consoleImages: images.default,
+        consoleMessage: {
+          pickTimes: data.default.defaultHeader,
+          location: data.default.defaultHeader,
+          message: data.default.defaultMessage
+        }
       },
       messageIsShown: true
     };
@@ -71,8 +93,8 @@ class PickYourOwn extends Component {
 
     this.setState({ messageIsShown: false });
     setTimeout(
-      function() {
-        buttonTemp.map(function(entry) {
+      function () {
+        buttonTemp.map(function (entry) {
           if (entry.name === pressedButton) {
             entry.buttonState = true;
           } else {
@@ -89,7 +111,7 @@ class PickYourOwn extends Component {
   }
 
   setCurrentButton() {
-    let selected = this.state.button.find(function(element) {
+    let selected = this.state.button.find(function (element) {
       return element.buttonState === true;
     });
     if (selected != null) {

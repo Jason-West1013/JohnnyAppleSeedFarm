@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import transition from "styled-transition-group";
 import PropTypes from "prop-types";
-import color from '../../../constants/colors';
+import color from "../../../constants/colors";
 
 // components
 import Directions from "./Directions.js";
@@ -58,17 +58,27 @@ const DescriptionSlider = transition.div.attrs({
   timeout: 1000
 })`
     position: absolute;
-    display: flex;
-    align-items: center;
     background-color: ${color.greyDark};
     bottom: 0;
     width: 100%;
     height: 50%;
     opacity: 0.8;
     text-align: center;
+    font-family: 'Bitter', serif;
+    font-size: 0.8em;
+    color: ${color.whitePrimary};
+
+    h2 {
+      padding: 0.75rem 0;
+    }
+
+    h3 {
+      padding: 0.25rem 0;
+    }
 
     p {
-        color: ${color.whitePrimary};
+      padding: 0.75rem;
+      font-family: 'Lato', sans-serif;
     }
   
     &:enter {
@@ -113,9 +123,9 @@ const DescriptionHeader = transition.div.attrs({
       background-color: ${color.greyDark};
       color: ${color.whitePrimary};
       transform: ${props =>
-    props.ifClicked
-      ? "translateY(0%); transition: all 1000ms ease-out;"
-      : "opacity: 0.01; transition: all 1000ms ease-out;"};
+        props.ifClicked
+          ? "translateY(0%); transition: all 1000ms ease-out;"
+          : "opacity: 0.01; transition: all 1000ms ease-out;"};
   
       &:enter {
           opacity: 0.01;
@@ -176,7 +186,7 @@ class Stand extends Component {
     super(props);
     this.state = {
       hover: false,
-      showDirections: false
+      showDirections: true
     };
     this.handleHover = this.handleHover.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -215,7 +225,9 @@ class Stand extends Component {
           in={!this.state.showDirections}
         >
           <FarmImage src={this.props.standInfo.image} alt={"Ellington Stand"} />
-          <DescriptionSlider in={this.state.hover} />
+          <DescriptionSlider in={this.state.hover}>
+            {this.props.description}
+          </DescriptionSlider>
         </ImageContainer>
 
         <SliderAnimation showState={this.state.showDirections} />
@@ -224,6 +236,7 @@ class Stand extends Component {
           <SideContainer>{this.props.left}</SideContainer>
           <Directions
             position={this.props.standInfo.position}
+            description={this.props.directDescript}
             click={this.handleClick}
           />
           <SideContainer>{this.props.right}</SideContainer>

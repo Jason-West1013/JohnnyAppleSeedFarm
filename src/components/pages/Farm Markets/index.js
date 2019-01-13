@@ -1,12 +1,17 @@
 import React from "react";
 import styled from "styled-components";
-import color from '../../../constants/colors';
+import color from "../../../constants/colors";
 
-// componenets
+// components
 import Stand from "./Stand.js";
-import { EllingtonLeft, EllingtonRight } from "./EllingtonSides.js";
-import { TollandLeft, TollandRight } from "./TollandSides.js";
-import { HouseLeft, HouseRight } from "./HouseSides.js";
+import {
+  EllingtonLeft,
+  EllingtonRight,
+  EllingtonDescription,
+  EllingtonDirectionDescription
+} from "./Ellington.js";
+import { TollandLeft, TollandRight, TollandDescription } from "./Tolland.js";
+import { HouseLeft, HouseRight, HouseDescription } from "./House.js";
 
 // images
 import ellingtonImage from "../../../images/farm_markets/ellington_stand_redo.jpg";
@@ -19,7 +24,12 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(90deg, ${color.whitePrimary}, ${color.greenLight}, ${color.whitePrimary});
+  background: linear-gradient(
+    90deg,
+    ${color.whitePrimary},
+    ${color.greenLight},
+    ${color.whitePrimary}
+  );
 `;
 
 const ellingtonStand = {
@@ -44,16 +54,20 @@ const FarmMarkets = () => (
   <Container>
     <Stand
       standInfo={ellingtonStand}
+      description={<EllingtonDescription />}
+      directDescript={<EllingtonDirectionDescription />}
       left={<EllingtonLeft />}
       right={<EllingtonRight />}
     />
     <Stand
       standInfo={tollandStand}
+      description={<TollandDescription />}
       left={<TollandLeft />}
       right={<TollandRight />}
     />
     <Stand
       standInfo={houseOrchard}
+      description={HouseDescription}
       left={<HouseLeft />}
       right={<HouseRight />}
     />

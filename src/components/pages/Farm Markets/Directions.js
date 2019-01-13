@@ -19,7 +19,7 @@ const DirectionDescription = styled.div`
   flex: 0.6;
 `;
 
-const Directions = ({ position, click }) => {
+const Directions = ({ position, description, click }) => {
   return (
     <Container
       onClick={function(e) {
@@ -35,7 +35,7 @@ const Directions = ({ position, click }) => {
           <Popup>A pretty CSS3 popup.</Popup>
         </Marker>
       </Leaflet>
-      <DirectionDescription onClick={click} />
+      <DirectionDescription onClick={click}>{description}</DirectionDescription>
     </Container>
   );
 };
