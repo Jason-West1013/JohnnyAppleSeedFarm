@@ -2,7 +2,7 @@
   "name": "johnny_appleseed_farm",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://jason-west1013.github.io/JohnnyAppleSeedFarm/",
+  "homepage": "https://jason-west1013.github.io/JohnnyAppleSeedFarm/",
   "dependencies": {
     "leaflet": "^1.3.3",
     "prop-types": "^15.6.1",
