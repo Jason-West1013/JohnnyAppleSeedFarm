@@ -105,7 +105,7 @@ class Header extends Component {
 
   render() {
     const buttons = [
-      { page: "Home", navPath: "/", transDelay: "0s" },
+      { page: "Home", navPath: "{process.env.PUBLIC_URL + '/'}", transDelay: "0s" },
       { page: "Pick your Own", navPath: "/PickYourOwn", transDelay: "0.15s" },
       { page: "Farm Markets", navPath: "/FarmMarkets", transDelay: "0.4s" },
       { page: "Recipes", navPath: "/recipes", transDelay: "0.65s" }
