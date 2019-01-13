@@ -14,7 +14,7 @@ const Main = () => (
   <Router>
     <div id="wrapper">
       <Header />
-      <Route exact path="/" component={Home} />
+      <Route exact path="/" component={Home} basename={process.env.PUBLIC_URL} />
       <Route path="/PickYourOwn" component={PickYourOwn} />
       <Route path="/FarmMarkets" component={FarmMarkets} />
       <Route path="/Recipes" component={Recipes} />

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/JohnnyAppleSeedFarm/precache-manifest.28a6154b7058e306ef48b8b18c5a5e9a.js"
+  "/JohnnyAppleSeedFarm/precache-manifest.5210c475063b459a183368bc830b1b0d.js"
 );
 
 workbox.clientsClaim();
