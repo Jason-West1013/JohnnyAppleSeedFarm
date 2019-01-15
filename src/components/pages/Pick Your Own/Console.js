@@ -88,7 +88,8 @@ const DefaultContainer = styled.div`
     margin-left: 15%;
 
     @media ${device.desktop} {
-      margin-left: 6%;
+      margin-top: -10rem;
+      margin-left: 8%;
     }
   }
 
@@ -108,7 +109,7 @@ const AppleContainer = styled.div`
     width: 30%;
 
     @media ${device.desktop} {
-      left: 32%;
+      left: 30%;
     }
 
     h1 {
@@ -139,7 +140,7 @@ const AppleContainer = styled.div`
     margin-left: 55%;
 
     @media ${device.desktop} {
-      margin-left: 60%;
+      margin-left: 58%;
     }
   }
 
@@ -148,7 +149,7 @@ const AppleContainer = styled.div`
     margin-left: 8%;
 
     @media ${device.desktop} {
-      margin-left: 5%;
+      margin-left: 6%;
     }
   }
 `;
@@ -162,7 +163,7 @@ const PeachContainer = styled.div`
     width: 32%;
 
     @media ${device.desktop} {
-      left: 40%;
+      left: 38%;
       width: 45%;
     }
 
@@ -207,11 +208,19 @@ const PeachContainer = styled.div`
   .peach-container-4 {
     margin-top: -29.5rem;
     margin-left: 28%;
+
+    @media ${device.desktop} {
+      margin-left: 25%;
+    }
   }
 
   .peach-container-5 {
     margin-top: -0.5rem;
     margin-left: 29%;
+
+    @media ${device.desktop} {
+      margin-left: 25%;
+    }
   }
 `;
 
@@ -268,7 +277,7 @@ const PumpkinContainer = styled.div`
 
     @media ${device.desktop} {
       margin-top: -23rem;
-      margin-left: 0;
+      margin-left: 2.5%;
     }
   }
 
@@ -278,7 +287,7 @@ const PumpkinContainer = styled.div`
 
     @media ${device.desktop} {
       margin-top: -10rem;
-      margin-left: 20%;
+      margin-left: 22.5%;
     }
   }
 `;

@@ -56,7 +56,7 @@ const NavButton = ({ navButtons, stateTop }) => {
     return (
       <StyledLink
         altbar={stateTop ? "true" : undefined}
-        to={result.navPath}
+        to={process.env.PUBLIC_URL + result.navPath}
         delay={result.transDelay}
         in={stateTop}
         key={i}

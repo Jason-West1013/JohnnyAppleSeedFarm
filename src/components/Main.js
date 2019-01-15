@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // page components
 import Home from './pages/Home';
@@ -14,10 +14,13 @@ const Main = () => (
   <Router>
     <div id="wrapper">
       <Header />
-      <Route exact path={process.env.PUBLIC_URL + '/'} component={Home} />
-      <Route path={process.env.PUBLIC_URL + '/PickYourOwn'} component={PickYourOwn} />
-      <Route path={process.env.PUBLIC_URL + '/FarmMarkets'} component={FarmMarkets} />
-      <Route path={process.env.PUBLIC_URL + '/Recipes'} component={Recipes} />
+      <Switch>
+        <Route exact path={process.env.PUBLIC_URL + '/'} component={Home} />
+        <Route path={process.env.PUBLIC_URL + '/PickYourOwn'} component={PickYourOwn} />
+        <Route path={process.env.PUBLIC_URL + '/FarmMarkets'} component={FarmMarkets} />
+        <Route path={process.env.PUBLIC_URL + '/Recipes'} component={Recipes} />
+      </Switch>
+
       <Footer />
     </div>
   </Router>

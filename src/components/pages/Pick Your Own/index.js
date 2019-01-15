@@ -71,8 +71,8 @@ class PickYourOwn extends Component {
 
     this.setState({ messageIsShown: false });
     setTimeout(
-      function() {
-        buttonTemp.map(function(entry) {
+      function () {
+        buttonTemp.map(function (entry) {
           if (entry.name === pressedButton) {
             entry.buttonState = true;
           } else {
@@ -89,7 +89,7 @@ class PickYourOwn extends Component {
   }
 
   setCurrentButton() {
-    let selected = this.state.button.find(function(element) {
+    let selected = this.state.button.find(function (element) {
       return element.buttonState === true;
     });
     if (selected != null) {

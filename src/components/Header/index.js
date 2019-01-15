@@ -41,7 +41,7 @@ const NavBar = styled.nav`
   position: ${props => (props.stateTop ? "fixed" : undefined)};
   top: ${props => (props.stateTop ? "0" : undefined)};
   width: ${props => (props.stateTop ? "100%" : undefined)};
-  padding: 0.3em 0;
+  //padding: 0.3em 0;
   justify-content: ${props => (props.stateTop ? "start" : "center")};
   text-align: center;
 `;
@@ -104,8 +104,9 @@ class Header extends Component {
   }
 
   render() {
+    const nav = process.env.PUBLIC_URL
     const buttons = [
-      { page: "Home", navPath: "{process.env.PUBLIC_URL + '/'}", transDelay: "0s" },
+      { page: "Home", navPath: "/", transDelay: "0s" },
       { page: "Pick your Own", navPath: "/PickYourOwn", transDelay: "0.15s" },
       { page: "Farm Markets", navPath: "/FarmMarkets", transDelay: "0.4s" },
       { page: "Recipes", navPath: "/recipes", transDelay: "0.65s" }
