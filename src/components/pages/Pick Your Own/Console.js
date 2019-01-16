@@ -91,6 +91,11 @@ const DefaultContainer = styled.div`
       margin-top: -10rem;
       margin-left: 8%;
     }
+
+    @media ${device.desktopL} {
+      margin-top: -11rem;
+      margin-left: 5%;
+    }
   }
 
   .default-container-5 {

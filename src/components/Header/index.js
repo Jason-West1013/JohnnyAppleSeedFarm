@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import transition from "styled-transition-group";
-import color from '../../constants/colors';
+import color from "../../constants/colors";
 import NavButton from "./NavButton.js";
 
 // images
@@ -104,7 +104,6 @@ class Header extends Component {
   }
 
   render() {
-    const nav = process.env.PUBLIC_URL
     const buttons = [
       { page: "Home", navPath: "/", transDelay: "0s" },
       { page: "Pick your Own", navPath: "/PickYourOwn", transDelay: "0.15s" },

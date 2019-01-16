@@ -18,6 +18,7 @@ const Container = styled.div`
   margin: 1em;
   width: 100%;
   height: 30em;
+  color: ${color.whitePrimary};
 `;
 
 const ImageContainer = transition.div.attrs({
@@ -66,16 +67,15 @@ const DescriptionSlider = transition.div.attrs({
     text-align: center;
     font-family: 'Bitter', serif;
     font-size: 0.8em;
-    color: ${color.whitePrimary};
-
+  
     h2 {
       padding: 0.75rem 0;
     }
-
+  
     h3 {
       padding: 0.25rem 0;
     }
-
+  
     p {
       padding: 0.75rem;
       font-family: 'Lato', sans-serif;
@@ -121,7 +121,6 @@ const DescriptionHeader = transition.div.attrs({
       font-size: 1em;
       opacity: 0.9;
       background-color: ${color.greyDark};
-      color: ${color.whitePrimary};
       transform: ${props =>
         props.ifClicked
           ? "translateY(0%); transition: all 1000ms ease-out;"
@@ -152,7 +151,6 @@ const DirectionContainer = transition.div.attrs({
 })`
     z-index: 97;
     position: absolute;
-    display: flex;
     height: 30em;
     width: 80%;
     background-color: ${color.greyPrimary};
@@ -176,17 +174,12 @@ const DirectionContainer = transition.div.attrs({
     }
 `;
 
-const SideContainer = styled.div`
-  height: 100%;
-  flex: 1;
-`;
-
 class Stand extends Component {
   constructor(props) {
     super(props);
     this.state = {
       hover: false,
-      showDirections: true
+      showDirections: false
     };
     this.handleHover = this.handleHover.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -210,6 +203,7 @@ class Stand extends Component {
     return (
       <Container
         directions={this.state.showDirections}
+        showChildren={this.state.showDirections}
         onClick={this.handleClick}
       >
         <DescriptionHeader
@@ -233,13 +227,12 @@ class Stand extends Component {
         <SliderAnimation showState={this.state.showDirections} />
 
         <DirectionContainer in={this.state.showDirections}>
-          <SideContainer>{this.props.left}</SideContainer>
           <Directions
             position={this.props.standInfo.position}
-            description={this.props.directDescript}
+            link={this.props.standInfo.directionLink}
+            description={this.props.directions}
             click={this.handleClick}
           />
-          <SideContainer>{this.props.right}</SideContainer>
         </DirectionContainer>
       </Container>
     );
@@ -247,9 +240,7 @@ class Stand extends Component {
 }
 
 Stand.propTypes = {
-  standInfo: PropTypes.object,
-  left: PropTypes.Component,
-  right: PropTypes.Component
+  standInfo: PropTypes.object
 };
 
 export default Stand;
