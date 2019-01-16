@@ -1,8 +1,8 @@
 {
-  "main.js": "/JohnnyAppleSeedFarm/static/js/main.c6d03e96.chunk.js",
-  "main.js.map": "/JohnnyAppleSeedFarm/static/js/main.c6d03e96.chunk.js.map",
-  "static/js/1.3a5cff53.chunk.js": "/JohnnyAppleSeedFarm/static/js/1.3a5cff53.chunk.js",
-  "static/js/1.3a5cff53.chunk.js.map": "/JohnnyAppleSeedFarm/static/js/1.3a5cff53.chunk.js.map",
+  "main.js": "/JohnnyAppleSeedFarm/static/js/main.dc619d3e.chunk.js",
+  "main.js.map": "/JohnnyAppleSeedFarm/static/js/main.dc619d3e.chunk.js.map",
+  "static/js/1.c34016db.chunk.js": "/JohnnyAppleSeedFarm/static/js/1.c34016db.chunk.js",
+  "static/js/1.c34016db.chunk.js.map": "/JohnnyAppleSeedFarm/static/js/1.c34016db.chunk.js.map",
   "runtime~main.js": "/JohnnyAppleSeedFarm/static/js/runtime~main.34c3f54a.js",
   "runtime~main.js.map": "/JohnnyAppleSeedFarm/static/js/runtime~main.34c3f54a.js.map",
   "static/media/ellington_sign_2.JPG": "/JohnnyAppleSeedFarm/static/media/ellington_sign_2.84112aae.JPG",
@@ -26,7 +26,6 @@
   "static/media/apple.png": "/JohnnyAppleSeedFarm/static/media/apple.2cc769eb.png",
   "static/media/peach_button.png": "/JohnnyAppleSeedFarm/static/media/peach_button.3d78412e.png",
   "static/media/pumpkin_button.png": "/JohnnyAppleSeedFarm/static/media/pumpkin_button.ae42b105.png",
-  "static/media/tractor_scaled.png": "/JohnnyAppleSeedFarm/static/media/tractor_scaled.7f3f9923.png",
   "static/media/ellington_stand_redo.jpg": "/JohnnyAppleSeedFarm/static/media/ellington_stand_redo.9342ddb9.jpg",
   "static/media/tolland_stand_redo.jpg": "/JohnnyAppleSeedFarm/static/media/tolland_stand_redo.5f1f89eb.jpg",
   "static/media/home_orchard_redo.jpg": "/JohnnyAppleSeedFarm/static/media/home_orchard_redo.283bcd48.jpg",
@@ -34,6 +33,6 @@
   "static/media/header_image.png": "/JohnnyAppleSeedFarm/static/media/header_image.c441061b.png",
   "static/media/angry_birds_2.JPG": "/JohnnyAppleSeedFarm/static/media/angry_birds_2.a458f749.JPG",
   "index.html": "/JohnnyAppleSeedFarm/index.html",
-  "precache-manifest.25f234a351224fbfb089fe3ee3f24c37.js": "/JohnnyAppleSeedFarm/precache-manifest.25f234a351224fbfb089fe3ee3f24c37.js",
+  "precache-manifest.718f7a593ac0b78a80a680ec7b74f225.js": "/JohnnyAppleSeedFarm/precache-manifest.718f7a593ac0b78a80a680ec7b74f225.js",
   "service-worker.js": "/JohnnyAppleSeedFarm/service-worker.js"
 }

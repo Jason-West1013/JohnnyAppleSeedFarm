@@ -31,7 +31,7 @@ const Container = styled.div`
 
     a {
       position: absolute;
-      right: 2%;
+      right: 3%;
       top: 75%;
       padding: 0.5rem 1rem;
       text-decoration: none;

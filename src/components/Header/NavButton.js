@@ -2,14 +2,18 @@ import React from "react";
 import transition from "styled-transition-group";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import color from '../../constants/colors';
+import color from "../../constants/colors";
 
 // styled components
 const StyledLink = transition(Link).attrs({
   unmountOnExit: false,
   timeout: 100000
 })`
-  padding: 0.35% 1%;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  margin: 0 0.5rem;
+  height: 1.75rem;
   text-decoration: none;
   font-family: 'Roboto', sans-serif;
   font-size: 0.9em;
@@ -19,6 +23,8 @@ const StyledLink = transition(Link).attrs({
     props.altbar
       ? undefined
       : `
+    flex: 0.1;
+    margin: 0;
     width: 120px;
     border: 1px solid ${color.black};
     background: linear-gradient(${color.redDark}, ${color.redPrimary});
@@ -52,7 +58,7 @@ const StyledLink = transition(Link).attrs({
 `;
 
 const NavButton = ({ navButtons, stateTop }) => {
-  return navButtons.map(function (result, i) {
+  return navButtons.map(function(result, i) {
     return (
       <StyledLink
         altbar={stateTop ? "true" : undefined}

@@ -36,14 +36,20 @@ const Logo = styled.img`
 `;
 
 const NavBar = styled.nav`
-  z-index: ${props => (props.stateTop ? "99" : undefined)};
   display: flex;
-  position: ${props => (props.stateTop ? "fixed" : undefined)};
-  top: ${props => (props.stateTop ? "0" : undefined)};
-  width: ${props => (props.stateTop ? "100%" : undefined)};
-  //padding: 0.3em 0;
   justify-content: ${props => (props.stateTop ? "start" : "center")};
-  text-align: center;
+  align-items: center;
+  height: 2.25rem;
+
+  ${props =>
+    props.stateTop
+      ? `
+        z-index: 99;
+        position: fixed;
+        top: 0;
+        width: 100%;
+      `
+      : undefined}
 `;
 
 const TopNavBackground = transition.div.attrs({
@@ -54,7 +60,7 @@ const TopNavBackground = transition.div.attrs({
     top: 0;
     background: linear-gradient(${color.redDark}, ${color.redPrimary});
     width: 100%;
-    height: 2.25em;
+    height: 2.25rem;
 
     &:enter {
       transform: translateY(-100%);
