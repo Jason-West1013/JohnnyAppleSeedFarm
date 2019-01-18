@@ -12,7 +12,7 @@ const StyledLink = transition(Link).attrs({
   display: flex;
   justify-content: center; 
   align-items: center;
-  margin: 0 0.5rem;
+  margin: 0 0.75rem;
   height: 1.75rem;
   text-decoration: none;
   font-family: 'Roboto', sans-serif;

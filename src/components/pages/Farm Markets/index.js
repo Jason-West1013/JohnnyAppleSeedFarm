@@ -28,7 +28,7 @@ const ellingtonStand = {
   name: "Ellington Stand",
   image: ellingtonImage,
   position: [41.903, -72.457],
-  directionLink: "https://goo.gl/maps/y2ZzHSgV3AS2"
+  directionLink: "https://goo.gl/maps/1725hW8edTM2"
 };
 
 const EllingtonDescription = () => (
@@ -64,7 +64,7 @@ const tollandStand = {
   name: "Tolland Stand",
   image: tollandImage,
   position: [41.863, -72.424],
-  directionLink: "https://goo.gl/maps/ePjLstmTxqx"
+  directionLink: "https://goo.gl/maps/XJxtAUF2ng92"
 };
 
 const TollandDescription = () => (
@@ -98,7 +98,7 @@ const houseOrchard = {
   name: "House Orchard",
   image: houseImage,
   position: [41.934, -72.402],
-  directionLink: "https://goo.gl/maps/nR3xshKj2Ks"
+  directionLink: "https://goo.gl/maps/CsFri4NZCwL2"
 };
 
 const HouseDescription = () => (
