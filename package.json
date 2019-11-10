@@ -5,9 +5,11 @@
   "main": "index.tsx",
   "scripts": {
     "start": "parcel src/index.html",
-    "build": "parcel build src/index.html -d build",
+    "build": "parcel build --public-url . src/index.html",
     "lint": "tslint -c tslint.json 'src/**/*.tsx'",
-    "deploy": "gh-pages -d build"
+    "clean": "rimraf dist/",
+    "prepare:deploy": "npm run clean -s && npm run build -s",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -37,6 +39,8 @@
     "babel-preset-react": "^6.24.1",
     "gh-pages": "^2.1.1",
     "parcel-bundler": "^1.12.4",
+    "rimraf": "^3.0.0",
+    "tslint": "^5.20.1",
     "typescript": "^3.6.4"
   }
 }
