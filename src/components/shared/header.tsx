@@ -22,7 +22,7 @@ const Container = styled.div`
 
 const Logo = styled.div`
 	height: 85px;
-	width: 22%;
+	width: 250px;
 	margin-left: 10px;
 	padding: 2px;
 
