@@ -2,38 +2,44 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import MenuOpen from '@material-ui/icons/MenuOpen'
-import { mobileScreen, mobileScreenPx, altGreenPrimary, greyLight, greyPrimary, greyDark } from '../../constants'
+import { smallScreen, smallScreenPx, altGreenPrimary, greyLight, greyPrimary, greyDark, mediumScreenPx } from '../../constants'
 
 import logo from '../../assets/logo.png'
 
 const Container = styled.div`
+	z-index: 1;
+	position: relative;
 	display: flex;
 	flex-direction: row;
-	border-bottom: 10px solid ${altGreenPrimary};
 
 	#separator-container {
 		flex-grow: 1;
 	}
 
-	@media (max-width: ${mobileScreenPx}) {
+	@media (max-width: ${smallScreenPx}) {
+		position: unset;
 		border-bottom: 7px solid ${altGreenPrimary};
 	}
 `
 
 const Logo = styled.div`
-	height: 85px;
-	width: 250px;
-	margin-left: 10px;
-	padding: 2px;
+	height: 5.3125rem;
+	width: 15.625rem;
+	padding: 0.125rem;
 
 	img {
 		height: 100%;
 		width: 100%;
 	}
 
-	@media screen and (max-width: ${mobileScreenPx}) {
-		height: 60px;
-		width: 40%;
+	@media screen and (min-width: ${mediumScreenPx}) {
+		margin: 1rem 0 0 2rem;
+	}
+
+	@media screen and (max-width: ${smallScreenPx}) {
+		height: 3.75rem;
+		width: 12rem;
+		margin: .5rem 0 .25rem 0;
 	}
 `
 
@@ -44,7 +50,7 @@ const NavBar = styled.nav<{ showBar: boolean }>`
 	align-items: center;
 	padding: 5px 25px;
 
-	@media (max-width: ${mobileScreenPx}) {
+	@media (max-width: ${smallScreenPx}) {
 		position: absolute;
 		flex-direction: column
 		right: 0;
@@ -70,22 +76,24 @@ const NavButton = styled.div<{ showButton: boolean }>`
 
 const Links = styled(Link)`
 	position: relative;
-	margin: 0px 20px;
-	border-bottom: 2px solid white;
 	text-decoration: none;
-	color: black;
+	color: white;
 	font-family: 'Open Sans', sans-serif;
 	font-weight: bold;
 
 	&:hover {
-		border-bottom-color: black;
-		transition: border-bottom-color 0.25s ease-in-out;
+		color: grey;
+		transition: color 0.25s ease-in-out;
 	}
 
-	@media (max-width: ${mobileScreenPx}) {
-		margin: 0;
+	@media (min-width: ${smallScreenPx}) {
+		margin: 0px .75rem;
+	}
+
+	@media (max-width: ${smallScreenPx}) {
 		border-bottom: 1px solid ${greyPrimary};
 		padding: 15% 100%;
+		color: black;
 
 		&:active {
 			background-color: ${greyDark}
@@ -94,7 +102,7 @@ const Links = styled(Link)`
 `
 
 const Header = () => {
-	const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= mobileScreen)
+	const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= smallScreen)
 	const [showNav, setShowNav] = useState<boolean>(!isMobile)
 
 	useEffect(() => {
@@ -102,8 +110,8 @@ const Header = () => {
 	}, [])
 
 	const onResize = () => {
-		window.innerWidth <= mobileScreen ? setIsMobile(true) : setIsMobile(false)
-		window.innerWidth <= mobileScreen ? setShowNav(false) : setShowNav(true)
+		window.innerWidth <= smallScreen ? setIsMobile(true) : setIsMobile(false)
+		window.innerWidth <= smallScreen ? setShowNav(false) : setShowNav(true)
 	}
 
 	const toggleMobileNav = () => isMobile && showNav ? setShowNav(false) : setShowNav(true)

@@ -1,5 +1,8 @@
-export const mobileScreenPx = '768px'
-export const mobileScreen = 768
+export const smallScreenPx = '768px'
+export const smallScreen = 768
+
+export const mediumScreenPx = '1024px'
+export const mediumScreen = 1024
 
 export const greyPrimary = '#9da9ae'
 export const greyLight = '#cedbe0'
